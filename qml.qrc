@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>UiTheme/Button.qml</file>
+        <file>UiTheme/Dialog.qml</file>
+        <file>UiTheme/DialogButtonBox.qml</file>
+        <file>UiTheme/Page.qml</file>
+        <file>UiTheme/qmldir</file>
+        <file>UiTheme/Slider.qml</file>
+        <file>UiTheme/Switch.qml</file>
+        <file>UiTheme/TabButton.qml</file>
+        <file>UiTheme/TextField.qml</file>
+        <file>UiTheme/Theme.qml</file>
+        <file>UiTheme/SwitchIndicator.qml</file>
+        <file>UiTheme/SwitchDelegate.qml</file>
+        <file>UiTheme/Text.qml</file>
+        <file>UiTheme/CheckBox.qml</file>
+        <file>UiTheme/CheckIndicator.qml</file>
+        <file>UiTheme/CheckDelegate.qml</file>
+        <file>UiTheme/ToolBar.qml</file>
+        <file>UiTheme/RadioButton.qml</file>
+        <file>UiTheme/RadioIndicator.qml</file>
+        <file>UiTheme/RadioDelegate.qml</file>
+        <file>UiTheme/ComboBox.qml</file>
+    </qresource>
+</RCC>
