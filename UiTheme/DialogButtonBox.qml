@@ -34,7 +34,7 @@ DialogButtonBox {
 
     contentItem: ListView {
         implicitWidth: contentWidth
-        implicitHeight: 30
+        implicitHeight: Theme.implicitHeightComponents
 
         model: root.contentModel
         spacing: root.spacing

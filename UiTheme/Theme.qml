@@ -17,6 +17,7 @@ Item {
     property color borderFocus: dark? darkBorderFocus : lightBorderFocus
     property color components: dark? darkComponents : lightComponents
     property color componentsBorder: dark? darkComponentsBorder : lightComponentsBorder
+    property color borderBottom: dark? darkBorderBottom : lightBorderBottom
     property color componentsDarker: dark? darkComponentsDarker : lightComponentsDarker
     property color componentsBorderDarker: dark? darkComponentsBorderDarker : lightComponentsBorderDarker
     property color delegate: dark? darkDelegate : lightDelegate
@@ -35,30 +36,33 @@ Item {
     readonly property color darkTextComponentsFocus: "#F9F9F9"
     readonly property color darkTextDisabled: "#DFDFE1"
     readonly property color darkInverseText: "#FFF"
-    readonly property color darkBorder: "#8E8E93"
+    readonly property color darkBorder: "#3e3e3e"
     readonly property color darkBorderFocus: "#F9F9F9"
     readonly property color darkComponents: "#2b2b2c"
     readonly property color darkComponentsBorder: "#3A3A3A"
+    readonly property color darkBorderBottom: "#2A2A2A"
     readonly property color darkComponentsDarker: "#0d0d0d"
     readonly property color darkComponentsBorderDarker: "#0d0d0d"
     readonly property color darkDelegate: "transparent"
     readonly property color darkDelegatePressed: "#202020"
 
-    readonly property color lightBackground: "#DFDFE1"
+    readonly property color lightBackground: "#efefef"
+    readonly property color lightHeaderBackground: "#DFDFDF"
     readonly property color lightView: "#F9F9F9"
     readonly property color lightText: "#000"
     readonly property color lightTextComponents: "#8E8E93"
     readonly property color lightTextComponentsFocus: "#66666A"
     readonly property color lightTextDisabled: "#666"
     readonly property color lightInverseText: "#FFF"
-    readonly property color lightBorder: lightgrey
+    readonly property color lightBorder: "#ccc"
     readonly property color lightBorderFocus: grey
     readonly property color lightComponents: "#F9F9F9"
-    readonly property color lightComponentsBorder: "#dfdfe1"
-    readonly property color lightComponentsDarker: lightgrey
-    readonly property color lightComponentsBorderDarker: lightgrey
+    readonly property color lightComponentsBorder: "#cfcfcf"
+    readonly property color lightBorderBottom: "#e0e0e0"
+    readonly property color lightComponentsDarker: "#e9e9e9"
+    readonly property color lightComponentsBorderDarker: "#dfdfdf"
     readonly property color lightDelegate: "transparent"
-    readonly property color lightDelegatePressed: "#E9E9E9"
+    readonly property color lightDelegatePressed: "#ddd"
 
     readonly property color lighter: "#F9F9F9"
     readonly property color grey: "#8E8E93"
@@ -73,6 +77,7 @@ Item {
     readonly property color pink: "#FF2D55"
 
     readonly property int pixelSize: 14
+    readonly property int implicitHeightComponents: 35
 
     function color50(color)
     {
@@ -109,5 +114,37 @@ Item {
     function checkedPressed(color)
     {
         return Qt.rgba(color.r, color.g, color.b, 0.70);
+    }
+
+    function getColor(index)
+    {
+        var color = "";
+        switch (index)
+        {
+        case 0: color = lighter
+            break;
+        case 1: color = grey
+            break;
+        case 2: color = lightgrey
+            break;
+        case 3: color = blue
+            break;
+        case 4: color = tealblue
+            break;
+        case 5: color = green
+            break;
+        case 6: color = yellow
+            break;
+        case 7: color = red
+            break;
+        case 8: color = orange
+            break;
+        case 9: color = purple
+            break;
+        case 10: color = pink
+            break;
+        }
+
+        return color;
     }
 }

@@ -35,13 +35,13 @@ Dialog {
     header: Item {
         visible: title
         width: parent.width
-        height: 40
+        height: 30
 
         Text {
             anchors.fill: parent
 
             text: dialog.title
-            font.pixelSize: parent.height * 0.4
+            font.pixelSize: parent.height * 0.5
             font.bold: true
 
             horizontalAlignment: Text.AlignHCenter
@@ -52,5 +52,6 @@ Dialog {
 
     footer: DialogButtonBox {
         visible: count > 0
+        height: 30
     }
 }

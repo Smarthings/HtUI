@@ -9,7 +9,7 @@ RadioDelegate {
 
     font.pixelSize: Theme.pixelSize
 
-    implicitHeight: 30
+    implicitHeight: Theme.implicitHeightComponents
     padding: 10
     spacing: 10
 

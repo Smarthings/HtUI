@@ -1,0 +1,38 @@
+import QtQuick 2.9
+import QtQuick.Controls 2.2
+import QtQuick.Controls.impl 2.2
+
+import "./"
+
+RoundButton {
+    id: control
+
+    property color color: Theme.primary
+    property alias textStyle: textStyle
+
+    enabled: true
+    opacity: enabled? 1.0 : 0.75
+
+    contentItem: Text {
+        id: textStyle
+        text: control.text
+        font.bold: flat
+
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        elide: Text.ElideRight
+    }
+
+    background: Rectangle {
+        visible: !control.flat || control.down || control.checked || control.highlighted
+        implicitWidth: 40
+        implicitHeight: 40
+
+
+        color: !control.flat? (control.checked || control.highlighted ?
+                                (control.visualFocus ? (control.down ? Theme.checkedFocus(control.color): Theme.focus(control.color)) : (control.down ? Theme.checkedPressed(control.color) : Theme.checked(control.color))) :
+                                (control.visualFocus ? (control.down ? Theme.focusPressed(control.color) : Theme.focusLight(control.color)) : (control.down ? Theme.pressed(control.color) : control.color))) : "transparent"
+        radius: control.radius
+    }
+}

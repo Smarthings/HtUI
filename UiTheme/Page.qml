@@ -4,6 +4,7 @@ import QtQuick.Controls 2.2
 Page {
     id: page
     default property alias content: pane.contentItem
+    property int margins: 0
     property color color: "transparent"
 
     background: Rectangle {
@@ -13,14 +14,13 @@ Page {
 
     Flickable {
         anchors.fill: parent
-        anchors.margins: 10
+        anchors.margins: page.margins
         contentHeight: pane.implicitHeight
         flickableDirection: Flickable.AutoFlickIfNeeded
 
         Pane {
             id: pane
             width: parent.width
-            padding: 10
 
             background: Rectangle {
                 anchors.fill: parent

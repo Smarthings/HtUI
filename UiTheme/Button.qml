@@ -5,7 +5,7 @@ import "./"
 import "../"
 
 Button {
-    id: root
+    id: control
     property color color: Theme.primary
     property alias textStyle: textStyle
 
@@ -13,20 +13,20 @@ Button {
     opacity: enabled? 1.0 : 0.75
 
     background: Rectangle {
-        visible: !root.flat || root.down || root.checked || root.highlighted
+        visible: !control.flat || control.down || control.checked || control.highlighted
         implicitWidth: 100
         implicitHeight: 30
 
 
-        color: root.checked || root.highlighted ?
-                   (root.visualFocus ? (root.down ? Theme.checkedFocus(root.color): Theme.focus(root.color)) : (root.down ? Theme.checkedPressed(root.color) : Theme.checked(root.color))) :
-                   (root.visualFocus ? (root.down ? Theme.focusPressed(root.color) : Theme.focusLight(root.color)) : (root.down ? Theme.pressed(root.color) : root.color))
+        color: !control.flat? (control.checked || control.highlighted ?
+                                (control.visualFocus ? (control.down ? Theme.checkedFocus(control.color): Theme.focus(control.color)) : (control.down ? Theme.checkedPressed(control.color) : Theme.checked(control.color))) :
+                                (control.visualFocus ? (control.down ? Theme.focusPressed(control.color) : Theme.focusLight(control.color)) : (control.down ? Theme.pressed(control.color) : control.color))) : "transparent"
         radius: height * 0.2
     }
 
     contentItem: Text {
         id: textStyle
-        text: root.text
+        text: control.text
         font.bold: flat
 
         anchors.fill: parent

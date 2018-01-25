@@ -13,6 +13,6 @@ ToolBar {
 
     background: Rectangle {
         implicitHeight: 50
-        color: Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.90)
+        color: Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 1)
     }
 }

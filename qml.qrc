@@ -23,5 +23,9 @@
         <file>UiTheme/RadioIndicator.qml</file>
         <file>UiTheme/RadioDelegate.qml</file>
         <file>UiTheme/ComboBox.qml</file>
+        <file>UiTheme/ItemDelegate.qml</file>
+        <file>UiTheme/Frame.qml</file>
+        <file>UiTheme/BorderBottom.qml</file>
+        <file>UiTheme/RoundButton.qml</file>
     </qresource>
 </RCC>

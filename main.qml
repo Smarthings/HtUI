@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 
 import "./UiTheme/"
@@ -7,8 +8,8 @@ import "./UiTheme/"
 ApplicationWindow {
     id: window
     visible: true
-    width: 480
-    height: 560
+    width: 360
+    height: 618
     title: qsTr("HtUI")
 
     Settings {
@@ -18,112 +19,301 @@ ApplicationWindow {
         onDarkChanged: Theme.dark = dark
 
         property color accent: Theme.blue
+        onAccentChanged: Theme.accent = accent
     }
 
-    Component.onCompleted: {
+    /*Component.onCompleted: {
         Theme.accent = Theme.blue
-    }
+    }*/
 
     header: ToolBar {
-        Text {
+        RowLayout {
             anchors.fill: parent
-            padding: 10
-            verticalAlignment: Text.AlignVCenter
 
-            text: "HtUI kit"
-            font.pixelSize: 20
-            font.bold: true
+            Text {
+                Layout.fillWidth: true
+                padding: 10
+                verticalAlignment: Text.AlignVCenter
+
+                text: "HtUI kit"
+                font.pixelSize: 20
+                font.bold: true
+            }
+
+            RoundButton {
+                text: "Tema"
+                Layout.margins: 5
+                color: Theme.accent
+
+                onClicked: dialog_theme.open()
+            }
         }
     }
 
     StackView {
         anchors.fill: parent
         initialItem: Page {
+            clip: true
+            margins: 0
             anchors.fill: parent
-            color: Theme.view
+            color: Theme.background
 
             Column {
-                anchors.fill: parent
-                spacing: 5
+                width: parent.width
+                height: parent.height + 30
+                spacing: 30
 
-                Switch {
+                Item {
                     width: parent.width
-                    text: "Tema Dark"
-                    checked: settings.dark
-
-                    onClicked: settings.dark = checked
+                    height: 1
                 }
 
-                CheckBox {
+                Frame {
                     width: parent.width
-                    text: "Checkbox"
-                }
+                    padding: 1
+                    radius: 5
 
-                RadioButton {
-                    width: parent.width
-                    text: "Radio button"
-                }
+                    Column {
+                        width: parent.width
 
-                SwitchDelegate {
-                    width: parent.width
-                    text: "Switch Delegate"
-                }
+                        Switch {
+                            width: parent.width
+                            text: "Switch"
 
-                CheckDelegate {
-                    width: parent.width
-                    text: "CheckDelegate"
-                }
+                            BorderBottom {}
+                        }
 
-                RadioDelegate {
-                    width: parent.width
-                    text: "Radio delegate"
-                }
+                        CheckBox {
+                            width: parent.width
+                            text: "Checkbox"
+                            BorderBottom {}
+                        }
 
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                    darker: true
-                }
-
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                }
-
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                    flat: true
-                }
-
-                Slider {
-                    width: parent.width
-                }
-
-                Row {
-                    width: parent.width
-
-                    Button {
-                        text: "Open Dialog"
-                        color: Theme.blue
-                        textStyle.color: Theme.lighter
-
-                        onClicked: dialog.open()
-                    }
-
-                    Button {
-                        text: "Open Dialog"
-                        color: Theme.blue
-                        flat: true
-
-                        onClicked: dialog.open()
+                        RadioButton {
+                            width: parent.width
+                            text: "Radio button"
+                        }
                     }
                 }
 
-                Image {
-                    source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
+                Frame {
                     width: parent.width
-                    fillMode: Image.PreserveAspectFit
+                    radius: 5
+
+                    Column {
+                        width: parent.width
+
+                        SwitchDelegate {
+                            width: parent.width
+                            text: "Switch Delegate"
+
+                            BorderBottom {}
+                        }
+
+                        CheckDelegate {
+                            width: parent.width
+                            text: "CheckDelegate"
+                            BorderBottom {}
+                        }
+
+                        RadioDelegate {
+                            width: parent.width
+                            text: "Radio delegate"
+                            BorderBottom {}
+                        }
+
+                        ItemDelegate {
+                            width: parent.width
+                            text: "Item Delegate"
+                        }
+                    }
+                }
+
+                Frame {
+                    width: parent.width
+                    padding: 10
+                    radius: 5
+                    border: true
+
+                    Column {
+                        width: parent.width
+                        spacing: 5
+
+                        TextField {
+                            width: parent.width
+                            placeholderText: "Teste"
+                            darker: true
+                        }
+
+                        TextField {
+                            width: parent.width
+                            placeholderText: "Teste"
+                        }
+
+                        TextField {
+                            width: parent.width
+                            placeholderText: "Teste"
+                            flat: true
+                        }
+
+                        ComboBox {
+                            width: parent.width
+                            model: ["Primeiro", "Segundo", "Terceiro", "Quarto"]
+                        }
+                    }
+                }
+
+                Frame {
+                    width: parent.width
+                    padding: 10
+                    radius: 5
+
+                    Column {
+                        width: parent.width
+                        spacing: 10
+
+                        Slider {
+                            width: parent.width
+                        }
+
+                        Slider {
+                            orientation: Qt.Vertical
+                        }
+                    }
+                }
+
+                Frame {
+                    width: parent.width
+                    padding: 10
+                    radius: 5
+                    border: true
+
+                    Row {
+                        width: parent.width
+
+                        Button {
+                            text: "Open Dialog"
+                            color: Theme.blue
+                            textStyle.color: Theme.lighter
+
+                            onClicked: dialog.open()
+                        }
+
+                        Button {
+                            text: "Width/Height Display"
+                            color: Theme.blue
+                            flat: true
+
+                            onClicked: teste.open()
+                        }
+                    }
+                }
+
+                Frame {
+                    width: parent.width
+                    padding: 10
+                    radius: 5
+
+                    GridLayout {
+                        width: parent.width
+                        columnSpacing: 5
+                        rowSpacing: 5
+                        columns: 3
+
+                        Button {
+                            text: "lighter"
+                            color: Theme.lighter
+                        }
+
+                        Button {
+                            text: "grey"
+                            color: Theme.grey
+                            textStyle.color: "#fff"
+                        }
+
+                        Button {
+                            text: "blue"
+                            color: Theme.blue
+                            textStyle.color: "#fff"
+                        }
+
+                        Button {
+                            text: "tealblue"
+                            color: Theme.tealblue
+                        }
+
+                        Button {
+                            text: "green"
+                            color: Theme.green
+                        }
+
+                        Button {
+                            text: "yellow"
+                            color: Theme.yellow
+                        }
+
+                        Button {
+                            text: "orange"
+                            color: Theme.orange
+                        }
+
+                        Button {
+                            text: "purple"
+                            color: Theme.purple
+                        }
+
+                        Button {
+                            text: "pink"
+                            color: Theme.pink
+                        }
+                    }
+                }
+
+                Frame {
+                    width: parent.width
+                    padding: 10
+                    radius: 5
+                    backgroundColor: "transparent"
+
+                    Image {
+                        source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
+                        width: parent.width
+                        fillMode: Image.PreserveAspectFit
+                    }
+                }
+
+                Column {
+                    width: parent.width
+                    height: 100
+                    padding: 10
+
+                    Frame {
+                        width: parent.width - parent.padding * 2
+                        padding: 1
+                        radius: 5
+
+                        Column {
+                            width: parent.width
+
+                            Switch {
+                                width: parent.width
+                                text: "Switch"
+
+                                BorderBottom {}
+                            }
+
+                            CheckBox {
+                                width: parent.width
+                                text: "Checkbox"
+                                BorderBottom {}
+                            }
+
+                            RadioButton {
+                                width: parent.width
+                                text: "Radio button"
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -133,91 +323,151 @@ ApplicationWindow {
         id: dialog
         width: 300
         height: 300
-        y: 80
+        y: 10
         modal: true
 
         title: "Título do Dialog"
 
         standardButtons: Dialog.Ok | Dialog.Cancel
 
-        Page {
+        Frame {
+            width: parent.width
+            height: parent.height
+
+            padding: 5
+            radius: 3
+
+            Page {
+                anchors.fill: parent
+                clip: true
+
+                Column {
+                    anchors.fill: parent
+                    spacing: 5
+
+                    Column {
+                        width: parent.width
+
+                        SwitchDelegate {
+                            width: parent.width
+                            text: "Switch Delegate"
+
+                            BorderBottom {}
+                        }
+
+                        CheckDelegate {
+                            width: parent.width
+                            text: "CheckDelegate"
+                            BorderBottom {}
+                        }
+
+                        RadioDelegate {
+                            width: parent.width
+                            text: "Radio delegate"
+                            BorderBottom {}
+                        }
+
+                        ItemDelegate {
+                            width: parent.width
+                            text: "Item Delegate"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Dialog {
+        id: teste
+        y: 10
+        modal: true
+
+        width: 300
+        height: 100
+
+        contentItem: Item {
             anchors.fill: parent
-            clip: true
 
             Column {
                 anchors.fill: parent
-                spacing: 5
+                spacing: 10
 
-                Switch {
-                    width: parent.width
-                    text: "Switch"
+                Text {
+                    text: "Width: " + window.width
                 }
 
-                CheckBox {
-                    width: parent.width
-                    text: "Checkbox"
+                Text {
+                    text: "Height: " + window.height
                 }
+            }
+        }
+    }
 
-                RadioButton {
+    Dialog {
+        id: dialog_theme
+        y: 10
+        modal: true
+
+        width: 300
+        height: 200
+        padding: -10
+
+        title: "Tema"
+        standardButtons: Dialog.Close
+
+        Frame {
+            anchors.fill: parent
+            padding: 0
+            radius: 5
+            backgroundColor: "transparent"
+
+            Page {
+                anchors.fill: parent
+                clip: true
+                padding: 10
+
+                Frame {
                     width: parent.width
-                    text: "Radio button"
-                }
+                    border: true
+                    radius: 5
+                    padding: 5
 
-                SwitchDelegate {
-                    width: parent.width
-                    text: "Switch Delegate"
-                }
+                    Column {
+                        width: parent.width
+                        spacing: 20
 
-                CheckDelegate {
-                    width: parent.width
-                    text: "CheckDelegate"
-                }
+                        SwitchDelegate {
+                            width: parent.width
+                            text: "Dark"
 
-                RadioDelegate {
-                    width: parent.width
-                    text: "Radio delegate"
-                }
+                            checked: settings.dark
+                            onClicked: settings.dark = checked
 
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                    darker: true
-                }
+                            BorderBottom {}
+                        }
 
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                }
+                        ComboBox {
+                            width: parent.width
 
-                TextField {
-                    width: parent.width
-                    placeholderText: "Teste"
-                    flat: true
-                }
+                            model: [
+                                "Lighter",
+                                "Grey",
+                                "LightGrey",
+                                "Blue",
+                                "Teal blue",
+                                "Green",
+                                "Yellow",
+                                "Red",
+                                "Orange",
+                                "Purple",
+                                "Pink"
+                            ]
 
-                Slider {
-                    width: parent.width
-                }
-
-                Row {
-                    width: parent.width
-
-                    Button {
-                        text: "Button"
-                        color: Theme.alert
+                            onCurrentIndexChanged: {
+                                settings.accent = Theme.getColor(currentIndex);
+                            }
+                        }
                     }
-
-                    Button {
-                        text: "Button flat"
-                        color: Theme.blue
-                        flat: true
-                    }
-                }
-
-                Image {
-                    source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
-                    width: parent.width
-                    fillMode: Image.PreserveAspectFit
                 }
             }
         }

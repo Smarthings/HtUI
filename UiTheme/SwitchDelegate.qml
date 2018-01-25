@@ -9,7 +9,7 @@ SwitchDelegate {
 
     font.pixelSize: Theme.pixelSize
 
-    implicitHeight: 35
+    implicitHeight: Theme.implicitHeightComponents
     padding: 10
     spacing: 10
 
