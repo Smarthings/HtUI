@@ -1,33 +1,25 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Controls.impl 2.2
 
 Page {
-    id: page
-    default property alias content: pane.contentItem
-    property int margins: 0
+    id: control
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            Math.max(contentWidth,
+                                     header && header.visible ? header.implicitWidth : 0,
+                                     footer && footer.visible ? footer.implicitWidth : 0) + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             contentHeight + topPadding + bottomPadding
+                             + (header && header.visible ? header.implicitHeight + spacing : 0)
+                             + (footer && footer.visible ? footer.implicitHeight + spacing : 0))
+
+    contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
+    contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
+
     property color color: "transparent"
 
     background: Rectangle {
-        anchors.fill: parent
-        color: page.color
-    }
-
-    Flickable {
-        anchors.fill: parent
-        anchors.margins: page.margins
-        contentHeight: pane.implicitHeight
-        flickableDirection: Flickable.AutoFlickIfNeeded
-
-        Pane {
-            id: pane
-            width: parent.width
-
-            background: Rectangle {
-                anchors.fill: parent
-                color: "transparent"
-            }
-        }
-
-        ScrollIndicator.vertical: ScrollIndicator { }
+        color: control.color
     }
 }

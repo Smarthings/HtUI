@@ -5,7 +5,6 @@
         <file>UiTheme/Button.qml</file>
         <file>UiTheme/Dialog.qml</file>
         <file>UiTheme/DialogButtonBox.qml</file>
-        <file>UiTheme/Page.qml</file>
         <file>UiTheme/qmldir</file>
         <file>UiTheme/Slider.qml</file>
         <file>UiTheme/Switch.qml</file>
@@ -27,5 +26,11 @@
         <file>UiTheme/Frame.qml</file>
         <file>UiTheme/BorderBottom.qml</file>
         <file>UiTheme/RoundButton.qml</file>
+        <file>UiTheme/ApplicationPage.qml</file>
+        <file>UiTheme/Page.qml</file>
+        <file>UiTheme/Spacing.qml</file>
+        <file>UiTheme/GroupBox.qml</file>
+        <file>UiTheme/RangeSlider.qml</file>
+        <file>UiTheme/SpinBox.qml</file>
     </qresource>
 </RCC>

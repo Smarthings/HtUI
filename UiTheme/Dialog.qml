@@ -35,7 +35,7 @@ Dialog {
     header: Item {
         visible: title
         width: parent.width
-        height: 30
+        height: Theme.implicitHeightComponents
 
         Text {
             anchors.fill: parent
@@ -52,6 +52,6 @@ Dialog {
 
     footer: DialogButtonBox {
         visible: count > 0
-        height: 30
+        height: Theme.implicitHeightComponents
     }
 }

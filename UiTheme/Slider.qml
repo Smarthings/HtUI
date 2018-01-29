@@ -6,12 +6,12 @@ import "./"
 Slider {
     id: control
 
-    enabled: true
-    opacity: enabled? 1.0 : 0.75
-
     readonly property bool isHorizontal: control.orientation === Qt.Horizontal
 
+    enabled: true
+    opacity: enabled? 1.0 : 0.75
     padding: 0
+
     handle: Rectangle {
         x: control.leftPadding + (isHorizontal ? control.visualPosition * (control.availableWidth - width) : (control.availableWidth - width) / 2)
         y: control.topPadding + (isHorizontal ? (control.availableHeight - height) / 2 : control.visualPosition * (control.availableHeight - height))
@@ -37,7 +37,7 @@ Slider {
             x: control.isHorizontal ? control.visualPosition : 0
             y: control.isHorizontal ? 0 : control.visualPosition * parent.height
             width: control.isHorizontal ? control.position * parent.width : 2
-            height: control.isHorizontal ? 2 : control.position * parent.height
+            height: control.isHorizontal ? 2 : control.position * parent.height - 1
 
             radius: 3
             color: Theme.accent

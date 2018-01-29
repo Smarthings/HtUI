@@ -22,10 +22,6 @@ ApplicationWindow {
         onAccentChanged: Theme.accent = accent
     }
 
-    /*Component.onCompleted: {
-        Theme.accent = Theme.blue
-    }*/
-
     header: ToolBar {
         RowLayout {
             anchors.fill: parent
@@ -52,74 +48,64 @@ ApplicationWindow {
 
     StackView {
         anchors.fill: parent
-        initialItem: Page {
-            clip: true
-            margins: 0
+        initialItem: ApplicationPage {
             anchors.fill: parent
+            clip: true
             color: Theme.background
 
             Column {
                 width: parent.width
-                height: parent.height + 30
-                spacing: 30
+                height: parent.height
+                spacing: 20
 
-                Item {
+                GroupBox {
                     width: parent.width
-                    height: 1
-                }
+                    autoAlign: true
+                    autoAlignBorder: true
+                    title: "Delegates"
 
-                Frame {
-                    width: parent.width
-                    padding: 1
-                    radius: 5
-
-                    Column {
+                    SwitchDelegate {
                         width: parent.width
+                        text: "Switch Delegate"
+                    }
 
-                        Switch {
-                            width: parent.width
-                            text: "Switch"
+                    RadioDelegate {
+                        width: parent.width
+                        text: "Radio Delegate"
+                    }
 
-                            BorderBottom {}
-                        }
+                    CheckDelegate {
+                        width: parent.width
+                        text: "Check Delegate"
+                    }
 
-                        CheckBox {
-                            width: parent.width
-                            text: "Checkbox"
-                            BorderBottom {}
-                        }
-
-                        RadioButton {
-                            width: parent.width
-                            text: "Radio button"
-                        }
+                    ItemDelegate {
+                        width: parent.width
+                        text: "Item Delegate"
                     }
                 }
 
-                Frame {
-                    width: parent.width
-                    radius: 5
-
-                    Column {
+                Spacing {
+                    GroupBox {
                         width: parent.width
+                        autoAlign: true
+                        autoAlignBorder: true
+                        radius: 5
+                        title: "Delegates"
 
                         SwitchDelegate {
                             width: parent.width
                             text: "Switch Delegate"
-
-                            BorderBottom {}
-                        }
-
-                        CheckDelegate {
-                            width: parent.width
-                            text: "CheckDelegate"
-                            BorderBottom {}
                         }
 
                         RadioDelegate {
                             width: parent.width
-                            text: "Radio delegate"
-                            BorderBottom {}
+                            text: "Radio Delegate"
+                        }
+
+                        CheckDelegate {
+                            width: parent.width
+                            text: "Check Delegate"
                         }
 
                         ItemDelegate {
@@ -129,15 +115,15 @@ ApplicationWindow {
                     }
                 }
 
-                Frame {
+
+                GroupBox {
                     width: parent.width
                     padding: 10
-                    radius: 5
-                    border: true
+                    title: "Input controls"
 
                     Column {
                         width: parent.width
-                        spacing: 5
+                        spacing: 10
 
                         TextField {
                             width: parent.width
@@ -160,13 +146,18 @@ ApplicationWindow {
                             width: parent.width
                             model: ["Primeiro", "Segundo", "Terceiro", "Quarto"]
                         }
+
+                        SpinBox {
+                            width: parent.width
+                            value: 50
+                        }
                     }
                 }
 
-                Frame {
+                GroupBox {
                     width: parent.width
-                    padding: 10
-                    radius: 5
+                    padding: 20
+                    title: "Sliders"
 
                     Column {
                         width: parent.width
@@ -176,43 +167,55 @@ ApplicationWindow {
                             width: parent.width
                         }
 
-                        Slider {
-                            orientation: Qt.Vertical
+                        RangeSlider {
+                            width: parent.width
+                        }
+
+                        Row {
+                            width: parent.width
+                            Slider {
+                                orientation: Qt.Vertical
+                            }
+
+                            RangeSlider {
+                                orientation: Qt.Vertical
+                            }
                         }
                     }
                 }
 
-                Frame {
-                    width: parent.width
-                    padding: 10
-                    radius: 5
-                    border: true
-
-                    Row {
+                Spacing {
+                    GroupBox {
                         width: parent.width
+                        padding: 10
+                        radius: 5
+                        border: true
 
-                        Button {
-                            text: "Open Dialog"
-                            color: Theme.blue
-                            textStyle.color: Theme.lighter
+                        Row {
+                            width: parent.width
 
-                            onClicked: dialog.open()
-                        }
+                            Button {
+                                text: "Open Dialog"
+                                color: Theme.blue
+                                textStyle.color: Theme.lighter
 
-                        Button {
-                            text: "Width/Height Display"
-                            color: Theme.blue
-                            flat: true
+                                onClicked: dialog.open()
+                            }
 
-                            onClicked: teste.open()
+                            Button {
+                                text: "Width/Height Display"
+                                color: Theme.blue
+                                flat: true
+
+                                onClicked: teste.open()
+                            }
                         }
                     }
                 }
 
-                Frame {
+                GroupBox {
                     width: parent.width
                     padding: 10
-                    radius: 5
 
                     GridLayout {
                         width: parent.width
@@ -269,28 +272,27 @@ ApplicationWindow {
                     }
                 }
 
-                Frame {
-                    width: parent.width
-                    padding: 10
-                    radius: 5
-                    backgroundColor: "transparent"
-
-                    Image {
-                        source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
+                Spacing {
+                    GroupBox {
                         width: parent.width
-                        fillMode: Image.PreserveAspectFit
+                        padding: 10
+                        radius: 5
+                        title: "Qt logo"
+
+                        Image {
+                            source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
+                            width: parent.width
+                            fillMode: Image.PreserveAspectFit
+                        }
                     }
                 }
 
                 Column {
                     width: parent.width
-                    height: 100
                     padding: 10
 
                     Frame {
                         width: parent.width - parent.padding * 2
-                        padding: 1
-                        radius: 5
 
                         Column {
                             width: parent.width
@@ -330,48 +332,34 @@ ApplicationWindow {
 
         standardButtons: Dialog.Ok | Dialog.Cancel
 
-        Frame {
-            width: parent.width
-            height: parent.height
+        Page {
+            anchors.fill: parent
+            clip: true
 
-            padding: 5
-            radius: 3
+            GroupBox {
+                width: parent.width
+                radius: 5
+                autoAlign: true
+                autoAlignBorder: true
 
-            Page {
-                anchors.fill: parent
-                clip: true
+                SwitchDelegate {
+                    width: parent.width
+                    text: "Switch Delegate"
+                }
 
-                Column {
-                    anchors.fill: parent
-                    spacing: 5
+                CheckDelegate {
+                    width: parent.width
+                    text: "CheckDelegate"
+                }
 
-                    Column {
-                        width: parent.width
+                RadioDelegate {
+                    width: parent.width
+                    text: "Radio delegate"
+                }
 
-                        SwitchDelegate {
-                            width: parent.width
-                            text: "Switch Delegate"
-
-                            BorderBottom {}
-                        }
-
-                        CheckDelegate {
-                            width: parent.width
-                            text: "CheckDelegate"
-                            BorderBottom {}
-                        }
-
-                        RadioDelegate {
-                            width: parent.width
-                            text: "Radio delegate"
-                            BorderBottom {}
-                        }
-
-                        ItemDelegate {
-                            width: parent.width
-                            text: "Item Delegate"
-                        }
-                    }
+                ItemDelegate {
+                    width: parent.width
+                    text: "Item Delegate"
                 }
             }
         }
@@ -384,8 +372,11 @@ ApplicationWindow {
 
         width: 300
         height: 100
+        padding: 10
 
-        contentItem: Item {
+        title: "Tamanho da Tela"
+
+        Page {
             anchors.fill: parent
 
             Column {
@@ -410,62 +401,59 @@ ApplicationWindow {
 
         width: 300
         height: 200
-        padding: -10
+        padding: 0
 
         title: "Tema"
         standardButtons: Dialog.Close
 
-        Frame {
+        Page {
             anchors.fill: parent
-            padding: 0
-            radius: 5
-            backgroundColor: "transparent"
 
-            Page {
-                anchors.fill: parent
-                clip: true
+            GroupBox {
+                width: parent.width
+                height: parent.height
                 padding: 10
+                borderTop: true
+                borderBottom: true
 
-                Frame {
+                autoAlign: true
+                autoAlignBorder: true
+
+                SwitchDelegate {
                     width: parent.width
-                    border: true
-                    radius: 5
-                    padding: 5
+                    text: "Dark"
 
-                    Column {
+                    checked: settings.dark
+                    onClicked: settings.dark = checked
+
+                    BorderBottom {}
+                }
+
+                Spacing {
+                    topPadding: 5
+                    bottomPadding: 5
+                    leftPadding: 0
+                    rightPadding: 0
+
+                    ComboBox {
                         width: parent.width
-                        spacing: 20
 
-                        SwitchDelegate {
-                            width: parent.width
-                            text: "Dark"
+                        model: [
+                            "Lighter",
+                            "Grey",
+                            "LightGrey",
+                            "Blue",
+                            "Teal blue",
+                            "Green",
+                            "Yellow",
+                            "Red",
+                            "Orange",
+                            "Purple",
+                            "Pink"
+                        ]
 
-                            checked: settings.dark
-                            onClicked: settings.dark = checked
-
-                            BorderBottom {}
-                        }
-
-                        ComboBox {
-                            width: parent.width
-
-                            model: [
-                                "Lighter",
-                                "Grey",
-                                "LightGrey",
-                                "Blue",
-                                "Teal blue",
-                                "Green",
-                                "Yellow",
-                                "Red",
-                                "Orange",
-                                "Purple",
-                                "Pink"
-                            ]
-
-                            onCurrentIndexChanged: {
-                                settings.accent = Theme.getColor(currentIndex);
-                            }
+                        onCurrentIndexChanged: {
+                            settings.accent = Theme.getColor(currentIndex);
                         }
                     }
                 }

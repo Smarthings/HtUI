@@ -15,8 +15,10 @@ Item {
         width: 40
         height: 25
         radius: width /2
+        border.color: control.visualFocus? Theme.focus(Theme.accent) :
+                       (control.down? Theme.focusPressed(Theme.accent) :
+                        (control.checked? Theme.accent : Theme.componentsBorder))
         color: control.checked? Theme.accent : Theme.components
-        border.color: control.visualFocus? Theme.accent : (control.checked? Theme.accent : Theme.border)
     }
 
     Rectangle {
@@ -26,7 +28,9 @@ Item {
         height: width
         radius: width / 2
         color: Theme.lighter
-        border.color: control.visualFocus? Theme.accent : (control.checked? Theme.accent : Theme.componentsBorder)
+        border.color: control.visualFocus? Theme.focus(Theme.accent) :
+                       (control.down? Theme.focusPressed(Theme.accent) :
+                        (control.checked? Theme.accent : Theme.componentsBorder))
 
         Behavior on x {
             enabled: !control.down
