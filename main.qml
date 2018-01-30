@@ -115,76 +115,77 @@ ApplicationWindow {
                     }
                 }
 
-
-                GroupBox {
-                    width: parent.width
-                    padding: 10
-                    title: "Input controls"
-
-                    Column {
+                Spacing {
+                    GroupBox {
                         width: parent.width
-                        spacing: 10
+                        padding: 10
+                        title: "Input controls"
 
-                        TextField {
+                        Column {
                             width: parent.width
-                            placeholderText: "Teste"
-                            darker: true
-                        }
+                            spacing: 10
 
-                        TextField {
-                            width: parent.width
-                            placeholderText: "Teste"
-                        }
-
-                        TextField {
-                            width: parent.width
-                            placeholderText: "Teste"
-                            flat: true
-                        }
-
-                        ComboBox {
-                            width: parent.width
-                            model: ["Primeiro", "Segundo", "Terceiro", "Quarto"]
-                        }
-
-                        ScrollView {
-                            width: parent.width
-                            height: 50
-
-                            TextArea {
-                                placeholderText: "Textarea"
+                            TextField {
+                                width: parent.width
+                                placeholderText: "Teste"
+                                darker: true
                             }
-                        }
 
-                        ScrollView {
-                            width: parent.width
-                            height: 50
+                            TextField {
+                                width: parent.width
+                                placeholderText: "Teste"
+                            }
 
-                            TextArea {
-                                placeholderText: "Textarea flat"
+                            TextField {
+                                width: parent.width
+                                placeholderText: "Teste"
                                 flat: true
                             }
-                        }
 
-                        ScrollView {
-                            width: parent.width
-                            height: 50
-
-                            TextArea {
-                                placeholderText: "Textarea without border"
-                                noBorder: true
+                            ComboBox {
+                                width: parent.width
+                                model: ["Primeiro", "Segundo", "Terceiro", "Quarto"]
                             }
-                        }
 
-                        SpinBox {
-                            width: parent.width
-                            value: 50
-                            editable: true
-                        }
+                            ScrollView {
+                                width: parent.width
+                                height: 50
 
-                        SpinBox {
-                            width: parent.width
-                            value: 50
+                                TextArea {
+                                    placeholderText: "Textarea"
+                                }
+                            }
+
+                            ScrollView {
+                                width: parent.width
+                                height: 50
+
+                                TextArea {
+                                    placeholderText: "Textarea flat"
+                                    flat: true
+                                }
+                            }
+
+                            ScrollView {
+                                width: parent.width
+                                height: 50
+
+                                TextArea {
+                                    placeholderText: "Textarea without border"
+                                    noBorder: true
+                                }
+                            }
+
+                            SpinBox {
+                                width: parent.width
+                                value: 50
+                                editable: true
+                            }
+
+                            SpinBox {
+                                width: parent.width
+                                value: 50
+                            }
                         }
                     }
                 }

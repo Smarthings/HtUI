@@ -10,7 +10,11 @@ T.ItemDelegate {
 
     font.pixelSize: Theme.pixelSize
 
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Theme.implicitHeightComponents
+    baselineOffset: contentItem.y + contentItem.baselineOffset
+
     padding: 10
     spacing: 10
 

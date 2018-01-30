@@ -7,8 +7,17 @@ import QtGraphicalEffects 1.0
 
 import "./"
 
-ComboBox {
+T.ComboBox {
     id: control
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             Math.max(contentItem.implicitHeight,
+                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+    baselineOffset: contentItem.y + contentItem.baselineOffset
+
+    Component.onCompleted: console.log("ComboBox", height);
 
     delegate: ItemDelegate {
         width: parent.width

@@ -13,6 +13,20 @@ T.Dialog {
     x: (window.width - width) /2
     y: 5
 
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            header && header.visible ? header.implicitWidth : 0,
+                            footer && footer.visible ? footer.implicitWidth : 0,
+                            contentWidth > 0 ? contentWidth + leftPadding + rightPadding : 0)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             (header && header.visible ? header.implicitHeight + spacing : 0)
+                             + (footer && footer.visible ? footer.implicitHeight + spacing : 0)
+                             + (contentHeight > 0 ? contentHeight + topPadding + bottomPadding : 0))
+
+    contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
+    contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
+
+    padding: 12
+
     background: Rectangle {
         id: background
         anchors.fill: parent

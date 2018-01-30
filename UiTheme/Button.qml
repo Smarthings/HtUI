@@ -5,13 +5,21 @@ import QtQuick.Templates 2.2 as T
 import "./"
 import "../"
 
-Button {
+T.Button {
     id: control
     property color color: Theme.primary
     property alias textStyle: textStyle
 
     enabled: true
     opacity: enabled? 1.0 : 0.75
+
+    padding: 6
+    leftPadding: padding + 2
+    rightPadding: padding + 2
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0, contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0, contentItem.implicitHeight + topPadding + bottomPadding)
+    baselineOffset: contentItem.y + contentItem.baselineOffset
 
     background: Rectangle {
         visible: !control.flat || control.down || control.checked || control.highlighted

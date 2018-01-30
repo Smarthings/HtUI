@@ -11,8 +11,8 @@ T.SpinBox {
     padding: 5
     implicitHeight: Theme.implicitHeightComponents
 
-    leftPadding: padding //padding + (control.mirrored ? (up.indicator ? up.indicator.width : 0) : (down.indicator ? down.indicator.width : 0))
-    rightPadding: up.indicator && down.indicator? (up.indicator.width + down.indicator.width): padding //padding + (control.mirrored ? (down.indicator ? down.indicator.width : 0) : (up.indicator ? up.indicator.width : 0))
+    leftPadding: padding
+    rightPadding: up.indicator && down.indicator? (up.indicator.width + down.indicator.width): padding
 
     validator: IntValidator {
         locale: control.locale.name
@@ -37,16 +37,6 @@ T.SpinBox {
         readOnly: !control.editable
         validator: control.validator
         inputMethodHints: control.inputMethodHints
-
-        /*Rectangle {
-            x: -6
-            y: -6
-            width: control.width - (up.indicator ? up.indicator.width*2 - 1 : 0) - (down.indicator ? down.indicator.width - 1 : 0)
-            height: control.height
-            visible: control.activeFocus
-            color: "transparent"
-            border.color: Theme.focus(Theme.accent)
-        }*/
     }
 
     Rectangle {

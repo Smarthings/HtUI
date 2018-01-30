@@ -1,13 +1,21 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.impl 2.2
+import QtQuick.Templates 2.2 as T
 
 import "./"
 
-RangeSlider {
+T.RangeSlider {
     id: control
 
     readonly property bool isHorizontal: control.orientation === Qt.Horizontal
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+        Math.max(first.handle ? first.handle.implicitWidth : 0,
+                 second.handle ? second.handle.implicitWidth : 0) + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+        Math.max(first.handle ? first.handle.implicitHeight : 0,
+                 second.handle ? second.handle.implicitHeight : 0) + topPadding + bottomPadding)
 
     enabled: true
     opacity: enabled? 1.0 : 0.75

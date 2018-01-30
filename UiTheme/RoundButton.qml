@@ -1,14 +1,21 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 import QtQuick.Controls.impl 2.2
+import QtQuick.Templates 2.2 as T
 
 import "./"
 
-RoundButton {
+T.RoundButton {
     id: control
 
     property color color: Theme.primary
     property alias textStyle: textStyle
+
+    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+                            contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : 0,
+                             contentItem.implicitHeight + topPadding + bottomPadding)
+    baselineOffset: contentItem.y + contentItem.baselineOffset
 
     enabled: true
     opacity: enabled? 1.0 : 0.75
