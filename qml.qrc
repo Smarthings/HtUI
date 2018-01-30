@@ -33,5 +33,6 @@
         <file>UiTheme/RangeSlider.qml</file>
         <file>UiTheme/SpinBox.qml</file>
         <file>UiTheme/SwipeDelegate.qml</file>
+        <file>UiTheme/TextArea.qml</file>
     </qresource>
 </RCC>

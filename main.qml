@@ -147,6 +147,35 @@ ApplicationWindow {
                             model: ["Primeiro", "Segundo", "Terceiro", "Quarto"]
                         }
 
+                        ScrollView {
+                            width: parent.width
+                            height: 50
+
+                            TextArea {
+                                placeholderText: "Textarea"
+                            }
+                        }
+
+                        ScrollView {
+                            width: parent.width
+                            height: 50
+
+                            TextArea {
+                                placeholderText: "Textarea flat"
+                                flat: true
+                            }
+                        }
+
+                        ScrollView {
+                            width: parent.width
+                            height: 50
+
+                            TextArea {
+                                placeholderText: "Textarea without border"
+                                noBorder: true
+                            }
+                        }
+
                         SpinBox {
                             width: parent.width
                             value: 50
