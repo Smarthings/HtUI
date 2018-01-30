@@ -37,5 +37,7 @@
         <file>UiTheme/ToolButton.qml</file>
         <file>UiTheme/ToolSeparator.qml</file>
         <file>UiTheme/ToolTip.qml</file>
+        <file>UiTheme/fonts/Ubuntu.ttf</file>
+        <file>UiTheme/fonts/MaterialIcons.ttf</file>
     </qresource>
 </RCC>

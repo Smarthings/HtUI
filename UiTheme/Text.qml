@@ -6,4 +6,5 @@ import "./"
 
 Text {
     color: Theme.text
+    font.family: ubuntu.name
 }

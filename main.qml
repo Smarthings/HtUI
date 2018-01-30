@@ -12,6 +12,8 @@ ApplicationWindow {
     height: 618
     title: qsTr("HtUI")
 
+    font: ubuntu.name
+
     Settings {
         id: settings
 
@@ -596,4 +598,9 @@ ApplicationWindow {
         }
     }
 
+    FontLoader {
+        id: ubuntu
+        name: "Ubuntu"
+        source: "qrc:/UiTheme/fonts/Ubuntu.ttf"
+    }
 }
