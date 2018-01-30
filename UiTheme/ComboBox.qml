@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Window 2.3
 import QtQuick.Controls 2.2
 import QtQuick.Controls.impl 2.2
+import QtQuick.Templates 2.2 as T
 import QtGraphicalEffects 1.0
 
 import "./"
@@ -26,7 +27,7 @@ ComboBox {
         opacity: enabled ? 1 : 0.75
     }
 
-    contentItem: TextField {
+    contentItem: T.TextField {
         leftPadding: !control.mirrored ? 12 : control.editable && activeFocus ? 3 : 1
         rightPadding: control.mirrored ? 12 : control.editable && activeFocus ? 3 : 1
         topPadding: 6 - control.padding
@@ -69,7 +70,7 @@ ComboBox {
         visible: !control.flat || control.down
     }
 
-    popup: Popup {
+    popup: T.Popup {
         y: control.height + 5
         width: control.width
         height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
@@ -93,7 +94,7 @@ ComboBox {
                 color: "transparent"
             }
 
-            ScrollIndicator.vertical: ScrollIndicator { }
+            T.ScrollIndicator.vertical: ScrollIndicator { }
         }
 
         background: Rectangle {

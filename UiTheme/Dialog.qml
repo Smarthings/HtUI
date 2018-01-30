@@ -1,10 +1,11 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import QtQuick.Templates 2.2 as T
 import QtGraphicalEffects 1.0
 
 import "."
 
-Dialog {
+T.Dialog {
     id: dialog
 
     property color color: Theme.background
