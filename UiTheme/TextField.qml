@@ -14,11 +14,7 @@ T.TextField {
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                                          placeholderText ? placeholder.implicitWidth + leftPadding + rightPadding : 0)
                    || contentWidth + leftPadding + rightPadding
-    implicitHeight: Theme.implicitHeightComponents
-
-    height: Theme.implicitHeightComponents - padding * 2
-
-    Component.onCompleted: console.log("TextField", height);
+    implicitHeight: Theme.implicitHeightComponents - padding * 2
 
     padding: 3.5
     leftPadding: padding + 4
