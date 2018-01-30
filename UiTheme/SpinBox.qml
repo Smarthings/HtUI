@@ -8,8 +8,10 @@ SpinBox {
     id: control
 
     padding: 5
-    leftPadding:  0 //padding + (control.mirrored ? (up.indicator ? up.indicator.width : 0) : (down.indicator ? down.indicator.width : 0))
-    //rightPadding: padding + (control.mirrored ? (down.indicator ? down.indicator.width : 0) : (up.indicator ? up.indicator.width : 0))
+    implicitHeight: Theme.implicitHeightComponents
+
+    leftPadding: padding //padding + (control.mirrored ? (up.indicator ? up.indicator.width : 0) : (down.indicator ? down.indicator.width : 0))
+    rightPadding: up.indicator && down.indicator? (up.indicator.width + down.indicator.width): padding //padding + (control.mirrored ? (down.indicator ? down.indicator.width : 0) : (up.indicator ? up.indicator.width : 0))
 
     validator: IntValidator {
         locale: control.locale.name
@@ -18,8 +20,11 @@ SpinBox {
     }
 
     contentItem: TextInput {
-        //z: 2
+        z: 2
         text: control.textFromValue(control.value, control.locale)
+        width: parent.width
+        height: parent.height - padding * 2
+
         opacity: control.enabled ? 1 : 0.3
 
         font: control.font
@@ -32,7 +37,7 @@ SpinBox {
         validator: control.validator
         inputMethodHints: control.inputMethodHints
 
-        Rectangle {
+        /*Rectangle {
             x: -6
             y: -6
             width: control.width - (up.indicator ? up.indicator.width*2 - 1 : 0) - (down.indicator ? down.indicator.width - 1 : 0)
@@ -40,45 +45,103 @@ SpinBox {
             visible: control.activeFocus
             color: "transparent"
             border.color: Theme.focus(Theme.accent)
+        }*/
+    }
+
+    Rectangle {
+        visible: control.focus && control.editable
+        width: up.indicator && down.indicator? parent.width - padding - (up.indicator.width + down.indicator.width) : parent.width - padding
+        height: 1
+        color: Theme.accent
+        anchors.bottom: parent.bottom
+    }
+
+    up.indicator: Item {
+        x: parent.width - width
+        y: padding
+        height: parent.height - padding * 2
+
+        implicitWidth: 40
+
+        Rectangle {
+            width: parent.width
+            height: parent.height
+
+            radius: 5
+            color: up.clicked || up.pressed || up.focus ? Theme.accent : "transparent"
+
+            Rectangle {
+                x: (parent.width - width) / 2
+                y: (parent.height - height) / 2
+                width: parent.width / 3
+                height: 2
+                color: up.clicked || up.pressed || up.focus ? Theme.text : Theme.accent
+            }
+            Rectangle {
+                x: (parent.width - width) / 2
+                y: (parent.height - height) / 2
+                width: 2
+                height: parent.width / 3
+                color: up.clicked || up.pressed || up.focus ? Theme.text : Theme.accent
+            }
+
+            Rectangle {
+                width: 2
+                height: parent.height
+                anchors.left: parent.left
+                color: up.clicked || up.pressed || up.focus ? Theme.accent : "transparent"
+            }
         }
     }
 
-    up.indicator: Rectangle {
-        x: control.mirrored ? 0 : parent.width - width
-        height: parent.height
+    down.indicator: Item {
+        x: parent.width - (width + up.indicator.width)
+        y: padding
+        height: parent.height - padding * 2
+
         implicitWidth: 40
-        implicitHeight: 25
-        color: up.pressed ? Theme.pressed(Theme.accent) : "transparent"
 
         Rectangle {
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            width: parent.width / 3
-            height: 2
-            color: enabled ? Theme.text : Theme.textDisabled
-        }
-        Rectangle {
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            width: 2
-            height: parent.width / 3
-            color: enabled ? Theme.text : Theme.textDisabled
+            width: parent.width
+            height: parent.height
+
+            radius: 5
+            color: down.clicked || down.pressed || down.focus ? Theme.accent : "transparent"
+
+            Rectangle {
+                x: (parent.width - width) / 2
+                y: (parent.height - height) / 2
+                width: parent.width / 3
+                height: 2
+                color: down.clicked || down.pressed || down.focus ? Theme.text : Theme.accent
+            }
+
+            Rectangle {
+                width: 2
+                height: parent.height
+                anchors.right: parent.right
+
+                color: down.clicked || down.pressed || down.focus ? Theme.accent : "transparent"
+            }
         }
     }
 
-    down.indicator: Rectangle {
-        x: control.mirrored ? 0 : parent.width - width * 2
-        height: parent.height
-        implicitWidth: 40
-        implicitHeight: 25
-        color: down.pressed ? Theme.pressed(Theme.accent) : "transparent"
+    Rectangle {
+        width: up.indicator && down.indicator? (up.indicator.width + down.indicator.width): 0
+        height: up.indicator && down.indicator? (up.indicator.height): 0
+        x: up.indicator && down.indicator? parent.width - width: 0
+        y: padding
+
+        radius: 5
+        color: "transparent"
+        border.color: Theme.accent
 
         Rectangle {
-            x: (parent.width - width) / 2
-            y: (parent.height - height) / 2
-            width: parent.width / 3
-            height: 2
-            color: enabled ? Theme.text : Theme.textDisabled
+            width: 1
+            height: parent.height
+
+            x: parent.width /2
+            color: Theme.accent
         }
     }
 

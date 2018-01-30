@@ -150,6 +150,12 @@ ApplicationWindow {
                         SpinBox {
                             width: parent.width
                             value: 50
+                            editable: true
+                        }
+
+                        SpinBox {
+                            width: parent.width
+                            value: 50
                         }
                     }
                 }
@@ -191,6 +197,8 @@ ApplicationWindow {
                         radius: 5
                         border: true
 
+                        title: "Modals"
+
                         Row {
                             width: parent.width
 
@@ -216,6 +224,8 @@ ApplicationWindow {
                 GroupBox {
                     width: parent.width
                     padding: 10
+
+                    title: "Buttons"
 
                     GridLayout {
                         width: parent.width
@@ -313,6 +323,78 @@ ApplicationWindow {
                             RadioButton {
                                 width: parent.width
                                 text: "Radio button"
+                            }
+                        }
+                    }
+                }
+
+                Spacing{
+                    GroupBox {
+                        width: parent.width
+                        padding: 10
+                        radius: 5
+
+                        title: "Swipe Delegate - Listview"
+
+                        Column {
+                            width: parent.width
+
+                            ListView {
+                                id: listView
+                                width: parent.width
+                                height: 100
+                                clip: true
+
+                                model: ListModel {
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                    ListElement { sender: "Swipe delegate"; title: "Arraste para a esquerda" }
+                                }
+                                delegate: SwipeDelegate {
+                                    id: swipeDelegate
+                                    text: model.sender + " - " + model.title
+                                    width: parent.width
+
+                                    ListView.onRemove: SequentialAnimation {
+                                        PropertyAction {
+                                            target: swipeDelegate
+                                            property: "ListView.delayRemove"
+                                            value: true
+                                        }
+                                        NumberAnimation {
+                                            target: swipeDelegate
+                                            property: "height"
+                                            to: 0
+                                            easing.type: Easing.InOutQuad
+                                        }
+                                        PropertyAction {
+                                            target: swipeDelegate
+                                            property: "ListView.delayRemove"
+                                            value: false
+                                        }
+                                    }
+
+                                    swipe.right: Label {
+                                        id: deleteLabel
+                                        text: qsTr("Remover")
+                                        color: "white"
+                                        verticalAlignment: Label.AlignVCenter
+                                        padding: 12
+                                        height: parent.height
+                                        anchors.right: parent.right
+
+                                        SwipeDelegate.onClicked: listView.model.remove(index)
+
+                                        background: Rectangle {
+                                            color: deleteLabel.SwipeDelegate.pressed ? Theme.pressed(Theme.warning) : Theme.warning
+                                        }
+                                    }
+
+                                    BorderBottom {}
+                                }
                             }
                         }
                     }

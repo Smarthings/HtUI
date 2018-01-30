@@ -7,6 +7,8 @@ import "./"
 Frame {
     id: control
 
+    property int radius: 5
+
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentHeight + topPadding + bottomPadding)
 
@@ -18,5 +20,6 @@ Frame {
     background: Rectangle {
         color: "transparent"
         border.color: Theme.border
+        radius: control.radius
     }
 }

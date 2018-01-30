@@ -43,7 +43,7 @@ Item {
     readonly property color darkBorderBottom: "#2A2A2A"
     readonly property color darkComponentsDarker: "#0d0d0d"
     readonly property color darkComponentsBorderDarker: "#0d0d0d"
-    readonly property color darkDelegate: "transparent"
+    readonly property color darkDelegate: "#1B1B1B"
     readonly property color darkDelegatePressed: "#202020"
 
     readonly property color lightBackground: "#efefef"
@@ -61,7 +61,7 @@ Item {
     readonly property color lightBorderBottom: "#e0e0e0"
     readonly property color lightComponentsDarker: "#e9e9e9"
     readonly property color lightComponentsBorderDarker: "#dfdfdf"
-    readonly property color lightDelegate: "transparent"
+    readonly property color lightDelegate: "#F9F9F9"
     readonly property color lightDelegatePressed: "#ddd"
 
     readonly property color lighter: "#F9F9F9"

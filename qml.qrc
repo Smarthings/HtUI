@@ -32,5 +32,6 @@
         <file>UiTheme/GroupBox.qml</file>
         <file>UiTheme/RangeSlider.qml</file>
         <file>UiTheme/SpinBox.qml</file>
+        <file>UiTheme/SwipeDelegate.qml</file>
     </qresource>
 </RCC>
