@@ -36,11 +36,18 @@ ApplicationWindow {
                 font.bold: true
             }
 
-            RoundButton {
-                text: "Tema"
-                Layout.margins: 5
-                color: Theme.accent
+            ToolButton {
+                text: "ToolTip"
 
+                ToolTip.visible: down
+                ToolTip.text: "Teste tooltip"
+            }
+
+            ToolSeparator {}
+
+            ToolButton {
+                text: "Tema"
+                radius: width /2
                 onClicked: dialog_theme.open()
             }
         }
@@ -57,6 +64,12 @@ ApplicationWindow {
                 width: parent.width
                 height: parent.height
                 spacing: 20
+
+                ToolTip {
+                    id: toolTip
+                    y: window.height - contentHeight
+                    timeout: 5000
+                }
 
                 GroupBox {
                     width: parent.width
@@ -241,11 +254,21 @@ ApplicationWindow {
                             }
 
                             Button {
-                                text: "Width/Height Display"
+                                text: "Display"
                                 color: Theme.blue
                                 flat: true
 
                                 onClicked: teste.open()
+                            }
+
+                            Button {
+                                text: "ToolTip"
+                                color: Theme.orange
+
+                                onClicked: {
+                                    toolTip.text = "Teste de tooltip Teste de tooltip Teste de tooltip Teste de tooltip Teste de tooltip Teste de tooltip Teste de tooltip"
+                                    toolTip.visible = true
+                                }
                             }
                         }
                     }

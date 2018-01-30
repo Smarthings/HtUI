@@ -34,5 +34,8 @@
         <file>UiTheme/SpinBox.qml</file>
         <file>UiTheme/SwipeDelegate.qml</file>
         <file>UiTheme/TextArea.qml</file>
+        <file>UiTheme/ToolButton.qml</file>
+        <file>UiTheme/ToolSeparator.qml</file>
+        <file>UiTheme/ToolTip.qml</file>
     </qresource>
 </RCC>
