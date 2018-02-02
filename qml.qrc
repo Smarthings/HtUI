@@ -39,5 +39,9 @@
         <file>UiTheme/ToolTip.qml</file>
         <file>UiTheme/fonts/Ubuntu.ttf</file>
         <file>UiTheme/fonts/MaterialIcons.ttf</file>
+        <file>images/builtQt.png</file>
+        <file>pages/LoginPage.qml</file>
+        <file>images/background.png</file>
+        <file>UiTheme/Drawer.qml</file>
     </qresource>
 </RCC>

@@ -25,6 +25,7 @@ Item {
 
     property color primary: grey
     property color info: dark? tealblue : blue
+    property color success: green
     property color alert: orange
     property color warning: red
     property color error: red

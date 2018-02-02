@@ -27,6 +27,18 @@ ApplicationWindow {
     header: ToolBar {
         RowLayout {
             anchors.fill: parent
+            anchors.leftMargin: 5
+            anchors.rightMargin: 5
+
+            ToolButton {
+                text: "\uE5D2"
+                font.family: material_icons.name
+                bottomPadding: -4
+                radius: width /2
+                font.pixelSize: 24
+
+                onClicked: drawer.open()
+            }
 
             Text {
                 Layout.fillWidth: true
@@ -49,10 +61,15 @@ ApplicationWindow {
 
             ToolButton {
                 text: "Tema"
-                radius: width /2
                 onClicked: dialog_theme.open()
             }
         }
+    }
+
+    Drawer {
+        id: drawer
+        width: (parent.width < 330)? parent.width : (((parent.width /3) * 2 > 400)? 400 : ((parent.width /3) * 2))
+        height: parent.height
     }
 
     StackView {
@@ -602,5 +619,11 @@ ApplicationWindow {
         id: ubuntu
         name: "Ubuntu"
         source: "qrc:/UiTheme/fonts/Ubuntu.ttf"
+    }
+
+    FontLoader {
+        id: material_icons
+        name: "Ubuntu"
+        source: "qrc:/UiTheme/fonts/MaterialIcons.ttf"
     }
 }

@@ -33,8 +33,8 @@ T.RoundButton {
 
     background: Rectangle {
         visible: !control.flat || control.down || control.checked || control.highlighted
-        implicitWidth: 40
-        implicitHeight: 40
+        implicitWidth: Theme.implicitHeightComponents
+        implicitHeight: Theme.implicitHeightComponents
 
 
         color: !control.flat? (control.checked || control.highlighted ?

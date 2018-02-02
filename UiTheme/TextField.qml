@@ -24,6 +24,7 @@ T.TextField {
     selectionColor: Theme.accent
     selectedTextColor: color
     verticalAlignment: TextInput.AlignVCenter
+    selectByMouse: true
 
     PlaceholderText {
         id: placeholder
