@@ -115,6 +115,38 @@ ApplicationWindow {
                         width: parent.width
                         text: "Item Delegate"
                     }
+
+                    ItemDelegate {
+                        width: parent.width
+                        text: "Teste"
+                        subtext: "Subtext"
+                        value: "Valor de teste"
+                        isItemMenu: true
+
+                        leftIcon: Text {
+                            text: "\uE869"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        text: "Teste"
+                        subtext: "Subtext"
+                        value: "Valor de teste"
+                        isItemMenu: true
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        text: "Teste"
+                        subtext: "Subtext"
+                        value: "Valor de teste"
+                    }
                 }
 
                 Spacing {
