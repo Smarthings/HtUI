@@ -15,7 +15,7 @@ T.GroupBox {
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
     padding: 1
-    topPadding: padding + (label && label.implicitWidth > 0 ? label.implicitHeight + spacing : 0)
+    topPadding: padding + (label && label.implicitWidth > 0 ? label.implicitHeight + spacing + 2 : 0)
 
     property int radius: 0
     property color backgroundColor: Theme.view

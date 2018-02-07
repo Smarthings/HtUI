@@ -36,17 +36,18 @@ T.Drawer {
             x: control.edge === Qt.LeftEdge ? parent.width - 1 : 0
             y: control.edge === Qt.TopEdge ? parent.height - 1 : 0
         }*/
+        border.width: 0
 
         FastBlur {
             id: fastBlur
             anchors.fill: parent
             radius: 80
-            opacity: 0.3
+            opacity: 0.2
 
             source: ShaderEffectSource {
                 anchors.fill: parent
                 sourceItem: window.contentItem
-                sourceRect: Qt.rect(control.x, control.y, drawer_background.width, drawer_background.height)
+                sourceRect: Qt.rect(control.x, control.y - (window.header? window.header.height : 0), drawer_background.width, drawer_background.height)
             }
         }
     }

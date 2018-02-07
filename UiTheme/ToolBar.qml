@@ -17,7 +17,6 @@ T.ToolBar {
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
     background: Rectangle {
-        implicitHeight: 50
         color: Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 1)
     }
 }

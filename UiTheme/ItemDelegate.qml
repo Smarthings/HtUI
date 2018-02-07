@@ -12,18 +12,21 @@ T.ItemDelegate {
     font.pixelSize: Theme.pixelSize
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
-                            contentItem.implicitWidth + leftPadding + rightPadding)
+                                         contentItem.implicitWidth + leftPadding + rightPadding)
     implicitHeight: Theme.implicitHeightComponents
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
     padding: 10
     spacing: 10
+    rightPadding: 2
+    leftPadding: 2
 
     property string subtext
     property string value
     property var leftIcon: null
     property var rightIcon: null
     property bool isItemMenu: false
+    property color backgroundColor: Theme.delegate
 
     contentItem: Item {
         anchors.fill: parent
@@ -48,16 +51,17 @@ T.ItemDelegate {
 
                 Column {
                     anchors.fill: parent
-                    anchors.topMargin: control.subtext? parent.parent.parent.parent.topPadding /2 : 0
 
                     Text {
                         width: parent.width
-                        height: control.subtext? font.pixelSize : parent.height
+                        height: control.subtext? (parent.height - parent.children[1].height) * 0.8 : parent.height
                         font: control.font
                         color: !control.enabled? Theme.textDisabled : (control.down ? Theme.color50(Theme.text) : Theme.text)
                         text: control.text
                         elide: Text.ElideRight
                         verticalAlignment: Qt.AlignVCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: control.padding
                     }
 
                     Text {
@@ -67,13 +71,15 @@ T.ItemDelegate {
                         elide: Text.ElideRight
                         font.pixelSize: Theme.pixelSize * 0.75
                         color: !control.enabled? Theme.color50(Theme.textDisabled) : (control.down ? Theme.color50(Theme.text) : Theme.color50(Theme.text))
+                        anchors.left: parent.left
+                        anchors.leftMargin: control.padding
                     }
                 }
             }
 
             Item {
                 Layout.fillHeight: true
-                Layout.preferredWidth: 50
+                Layout.preferredWidth: 100
                 visible: control.value
 
                 Text {
@@ -83,6 +89,9 @@ T.ItemDelegate {
                     color: !control.enabled? Theme.color50(Theme.textDisabled) : (control.down ? Theme.color50(Theme.text) : Theme.color50(Theme.text))
                     horizontalAlignment: Qt.AlignRight
                     verticalAlignment: Qt.AlignVCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: (_rightIcon.children[0])? 0 : control.padding
+                    elide: Text.ElideRight
                 }
             }
 
@@ -99,7 +108,7 @@ T.ItemDelegate {
         implicitWidth: 100
         implicitHeight: Theme.implicitHeightComponents
         visible: control.down || control.highlighted || control.visualFocus
-        color: control.highlighted || control.down ? Theme.delegatePressed : Theme.delegate
+        color: control.highlighted || control.down ? Theme.delegatePressed : control.backgroundColor
     }
 
     Component.onCompleted: {
@@ -110,7 +119,7 @@ T.ItemDelegate {
 
         if (control.rightIcon === null && control.isItemMenu)
         {
-            var isItemMenuObj = Qt.createQmlObject("import QtQuick 2.9; import \".\"; Text {anchors.fill: parent; text: \"\uE315\"; color: !control.enabled? Theme.textDisabled : (control.down ? Theme.color50(Theme.text) : Theme.text);font.pixelSize: parent.height; anchors.right: parent.right}", _rightIcon);
+            var isItemMenuObj = Qt.createQmlObject("import QtQuick 2.9; import \".\"; Text { text: \"\uE315\"; anchors.fill: parent; anchors.topMargin: 6; horizontalAlignment: Qt.AlignRight; verticalAlignment: Qt.AlignVCenter; color: Theme.color50(Theme.text); font.pixelSize: 25}", _rightIcon);
         }
     }
 }

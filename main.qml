@@ -68,8 +68,141 @@ ApplicationWindow {
 
     Drawer {
         id: drawer
-        width: (parent.width < 330)? parent.width : (((parent.width /3) * 2 > 400)? 400 : ((parent.width /3) * 2))
+        width: (parent.width < 350)? parent.width : (((parent.width /3) * 2 > 400)? 400 : ((parent.width /3) * 2.2))
         height: parent.height
+        clip: true
+
+        Page {
+            anchors.fill: parent
+
+            Column {
+                anchors.fill: parent
+                clip: true
+
+                Rectangle {
+                    width: parent.width
+                    height: 150
+                    color: Theme.accent
+
+                    ColumnLayout {
+                        anchors.fill: parent
+                        anchors.margins: 10
+
+                        Text {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            text: "HtUI - kit"
+                            font.pixelSize: 32
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                        Text {
+                            Layout.fillWidth: true
+                            text: "HomeThings UI theme"
+                            horizontalAlignment: Qt.AlignRight
+                        }
+                    }
+                }
+
+                GroupBox {
+                    width: parent.width
+                    radius: 5
+                    autoAlign: true
+                    autoAlignBorder: true
+                    backgroundColor: "transparent"
+
+                    ItemDelegate {
+                        width: parent.width
+                        implicitHeight: Theme.implicitHeightComponents * 1.2
+                        text: "Configurações"
+                        subtext: "Subtext"
+                        isItemMenu: true
+
+                        leftIcon: Text {
+                            text: "\uE869"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        implicitHeight: Theme.implicitHeightComponents * 1.2
+                        text: "Android"
+                        subtext: "Subtext"
+                        isItemMenu: true
+                        backgroundColor: "transparent"
+
+                        leftIcon: Text {
+                            text: "\uE859"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        implicitHeight: Theme.implicitHeightComponents * 1.2
+                        text: "Translate"
+                        subtext: "Subtext"
+                        value: "Valor de translate"
+                        isItemMenu: true
+                        backgroundColor: "transparent"
+
+                        leftIcon: Text {
+                            text: "\uE927"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        implicitHeight: Theme.implicitHeightComponents * 1.2
+                        text: "Cadeado"
+                        subtext: "Subtext"
+                        value: "Valor de cadeado"
+                        isItemMenu: true
+                        backgroundColor: "transparent"
+
+                        leftIcon: Text {
+                            text: "\uE88D"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+
+                    ItemDelegate {
+                        width: parent.width
+                        implicitHeight: Theme.implicitHeightComponents * 1.2
+                        text: "Brilho"
+                        isItemMenu: true
+                        backgroundColor: "transparent"
+
+                        leftIcon: Text {
+                            text: "\uE1AE"
+                            anchors.fill: parent
+                            color: Theme.text
+                            font.pixelSize: 18
+                            horizontalAlignment: Qt.AlignHCenter
+                            verticalAlignment: Qt.AlignVCenter
+                        }
+                    }
+                }
+            }
+        }
     }
 
     StackView {
@@ -146,6 +279,87 @@ ApplicationWindow {
                         text: "Teste"
                         subtext: "Subtext"
                         value: "Valor de teste"
+                    }
+                }
+
+                Spacing {
+                    GroupBox {
+                        width: parent.width
+                        radius: 5
+                        autoAlign: true
+                        autoAlignBorder: true
+
+                        ItemDelegate {
+                            width: parent.width
+                            implicitHeight: Theme.implicitHeightComponents * 1.2
+                            text: "Configurações"
+                            subtext: "Subtext"
+                            value: "Valor de configuração"
+                            isItemMenu: true
+
+                            leftIcon: Text {
+                                text: "\uE869"
+                                anchors.fill: parent
+                                color: Theme.text
+                                font.pixelSize: 18
+                                horizontalAlignment: Qt.AlignHCenter
+                                verticalAlignment: Qt.AlignVCenter
+                            }
+                        }
+
+                        ItemDelegate {
+                            width: parent.width
+                            implicitHeight: Theme.implicitHeightComponents * 1.2
+                            text: "Android"
+                            subtext: "Subtext"
+                            value: "Valor de Android"
+                            isItemMenu: true
+
+                            leftIcon: Text {
+                                text: "\uE859"
+                                anchors.fill: parent
+                                color: Theme.text
+                                font.pixelSize: 18
+                                horizontalAlignment: Qt.AlignHCenter
+                                verticalAlignment: Qt.AlignVCenter
+                            }
+                        }
+
+                        ItemDelegate {
+                            width: parent.width
+                            implicitHeight: Theme.implicitHeightComponents * 1.2
+                            text: "Translate"
+                            subtext: "Subtext"
+                            value: "Valor de translate"
+                            isItemMenu: true
+
+                            leftIcon: Text {
+                                text: "\uE927"
+                                anchors.fill: parent
+                                color: Theme.text
+                                font.pixelSize: 18
+                                horizontalAlignment: Qt.AlignHCenter
+                                verticalAlignment: Qt.AlignVCenter
+                            }
+                        }
+
+                        ItemDelegate {
+                            width: parent.width
+                            implicitHeight: Theme.implicitHeightComponents * 1.2
+                            text: "Cadeado"
+                            subtext: "Subtext"
+                            value: "Valor de cadeado"
+                            isItemMenu: true
+
+                            leftIcon: Text {
+                                text: "\uE88D"
+                                anchors.fill: parent
+                                color: Theme.text
+                                font.pixelSize: 18
+                                horizontalAlignment: Qt.AlignHCenter
+                                verticalAlignment: Qt.AlignVCenter
+                            }
+                        }
                     }
                 }
 
@@ -599,9 +813,10 @@ ApplicationWindow {
                 width: parent.width
                 height: parent.height
                 padding: 10
-                borderTop: true
-                borderBottom: true
+                /*borderTop: true
+                borderBottom: true*/
 
+                backgroundColor: "transparent"
                 autoAlign: true
                 autoAlignBorder: true
 
