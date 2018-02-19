@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>old-main.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>UiTheme/Button.qml</file>
         <file>UiTheme/Dialog.qml</file>
@@ -43,5 +43,22 @@
         <file>pages/LoginPage.qml</file>
         <file>images/background.png</file>
         <file>UiTheme/Drawer.qml</file>
+        <file>main.qml</file>
+        <file>pages/ThemePage.qml</file>
+        <file>pages/SettingsPage.qml</file>
+        <file>pages/AboutPage.qml</file>
+        <file>UiTheme/assets/background-blur.png</file>
+        <file>UiTheme/Pane.qml</file>
+        <file>pages/HeaderDefault.qml</file>
+        <file>UiTheme/ScrollablePage.qml</file>
+        <file>pages/Components.qml</file>
+        <file>pages/HomePage.qml</file>
+        <file>pages/InputsPage.qml</file>
+        <file>pages/TogglePage.qml</file>
+        <file>pages/SlidersPage.qml</file>
+        <file>pages/ButtonsPage.qml</file>
+        <file>pages/DelegatesPage.qml</file>
+        <file>pages/Teste.qml</file>
+        <file>UiTheme/ScrollablePane.qml</file>
     </qresource>
 </RCC>

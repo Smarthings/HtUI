@@ -4,7 +4,7 @@ import QtQuick.Templates 2.2 as T
 
 T.Page {
     id: page
-    default property alias content: pane.contentItem
+    //default property alias content: pane.contentItem
     property int margin: 0
     property int marginTop: 10
     property color color: "transparent"
@@ -14,9 +14,9 @@ T.Page {
         color: page.color
     }
 
-    Flickable {
+    /*Flickable {
         width: parent.width
-        height: parent.height - page.marginTop * 4
+        height: pane.implicitHeight - page.marginTop * 4
 
         flickableDirection: Flickable.AutoFlickIfNeeded
         contentHeight: pane.implicitHeight
@@ -36,5 +36,5 @@ T.Page {
         }
 
         ScrollIndicator.vertical: ScrollIndicator {}
-    }
+    }*/
 }

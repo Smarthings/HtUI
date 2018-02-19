@@ -11,7 +11,7 @@ T.Dialog {
     property color color: Theme.background
 
     x: (window.width - width) /2
-    y: 5
+    y: 30
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             header && header.visible ? header.implicitWidth : 0,
