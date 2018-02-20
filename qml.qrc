@@ -58,7 +58,6 @@
         <file>pages/SlidersPage.qml</file>
         <file>pages/ButtonsPage.qml</file>
         <file>pages/DelegatesPage.qml</file>
-        <file>pages/Teste.qml</file>
         <file>UiTheme/ScrollablePane.qml</file>
     </qresource>
 </RCC>

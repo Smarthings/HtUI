@@ -102,15 +102,6 @@ ScrollablePage {
                         text: "Dialogs"
                         isItemMenu: true
                     }
-
-                    ItemDelegate {
-                        width: parent.width
-                        text: "Teste"
-                        isItemMenu: true
-                        onClicked: {
-                            stackview_components.push("qrc:/pages/Teste.qml", {"header_height": header.height});
-                        }
-                    }
                 }
             }
         }
