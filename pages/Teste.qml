@@ -4,35 +4,55 @@ import QtQuick.Controls 2.2
 import "../UiTheme/"
 
 ScrollablePage {
+    width: parent.width
+    height: window.height - header_height * 1.1
+
+    property int header_height: 0
+
     Column {
-        width: parent.width
-        height: parent.height
-        spacing: 20
+        anchors.fill: parent
 
-        Text {
+        Rectangle {
             width: parent.width
-            text: qsTr("Desenvolvido em")
-            horizontalAlignment: Qt.AlignRight
-        }
-
-        GroupBox {
-            width: parent.width
-            padding: 10
-            radius: 5
-
-            Image {
-                source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
-                width: parent.width
-                fillMode: Image.PreserveAspectFit
-            }
-        }
-
-        Button {
-            text: "Open Modal"
-            color: Theme.accent
-
-            onClicked: popup.open()
+            height: 650
         }
     }
 }
 
+/*Item {
+    width: parent.width
+    onHeightChanged: console.log(height)
+
+    Flickable {
+        anchors.fill: parent
+        contentHeight: pane.implicitHeight
+
+        Pane {
+            id: pane
+            width: parent.width
+
+            Column {
+                anchors.fill: parent
+
+                Rectangle {
+                    width: parent.width
+                    height: 650
+                }
+            }
+        }
+    }
+}*/
+
+/*ScrollablePage {
+    height: column.childrenRect.height
+
+    Column {
+        id: column
+        width: parent.width
+
+        Rectangle {
+            width: parent.width
+            height: 300
+        }
+    }
+}*/

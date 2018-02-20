@@ -17,6 +17,10 @@ Page {
         Pane {
             id: pane
             width: parent.width
+
+            padding: 0
+            topPadding: 10
+            bottomPadding: 10
         }
 
         ScrollIndicator.vertical: ScrollIndicator { }

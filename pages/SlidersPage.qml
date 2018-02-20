@@ -4,7 +4,11 @@ import QtQuick.Layouts 1.3
 
 import "../UiTheme/"
 
-ScrollablePane {
+ScrollablePage {
+    width: parent.width
+    height: window.height - header_height * 1.1
+
+    property int header_height: 0
     property string titleHeader: qsTr("Sliders")
     color: Theme.background
 
