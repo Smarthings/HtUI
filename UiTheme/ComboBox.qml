@@ -11,10 +11,11 @@ T.ComboBox {
     id: control
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
-                            contentItem.implicitWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(background ? background.implicitHeight : 0,
-                             Math.max(contentItem.implicitHeight,
-                                      indicator ? indicator.implicitHeight : 0) + topPadding + bottomPadding)
+                                         contentItem.implicitWidth + leftPadding + rightPadding)
+    implicitHeight: Math.max(background ? background.implicitHeight : Theme.implicitHeightComponents,
+                                          Math.max(contentItem.implicitHeight,
+                                                   indicator ? indicator.implicitHeight : Theme.implicitHeightComponents) + topPadding + bottomPadding)
+
     baselineOffset: contentItem.y + contentItem.baselineOffset
 
     delegate: ItemDelegate {
@@ -25,14 +26,48 @@ T.ComboBox {
         hoverEnabled: control.hoverEnabled
     }
 
-    indicator: Image {
-        x: control.mirrored ? control.padding : control.width - width - control.padding
+    indicator: Item {
+        x: control.mirrored ? control.padding - 5 : control.width - width - control.padding - 5
         y: control.topPadding + (control.availableHeight - height) / 2
-        source: "image://default/double-arrow/" + (!control.editable && control.visualFocus ? Theme.focus(Theme.accent) : Theme.text)
-        sourceSize.width: width
-        sourceSize.height: height
-        opacity: enabled ? 1 : 0.75
+        width: height
+        height: Theme.implicitHeightComponents * 0.5
+
+        rotation: popup.visible? 180 : 0
+
+        Rectangle {
+            x: width * 0.20
+            y: parent.height /2
+            width: parent.width * 0.5
+            height: 2
+            color: control.editable || control.visualFocus?
+                       (control.pressed? Theme.focusPressed(Theme.accent) : Theme.focusLight(Theme.accent))
+                     : (control.down || popup.visible? Theme.pressed(Theme.accent) : Theme.text)
+
+            radius: 5
+            rotation: 45
+        }
+
+        Rectangle {
+            x: width * 0.85
+            y: parent.height /2
+            width: parent.width * 0.5
+            height: 2
+            color: control.editable || control.visualFocus?
+                       (control.pressed? Theme.focusPressed(Theme.accent) : Theme.focusLight(Theme.accent))
+                     : (control.down || popup.visible? Theme.pressed(Theme.accent) : Theme.text)
+
+            radius: 5
+            rotation: -45
+        }
+
+        Behavior on rotation {
+            NumberAnimation {
+                duration: 150
+            }
+        }
     }
+
+
 
     contentItem: T.TextField {
         leftPadding: !control.mirrored ? 12 : control.editable && activeFocus ? 3 : 1
@@ -105,11 +140,26 @@ T.ComboBox {
         }
 
         background: Rectangle {
-            id: background
             anchors.fill: parent
             color: Theme.components
             border.color: Theme.componentsBorder
             radius: 5
+        }
+
+        enter: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 0.0
+                to: 1.0
+            }
+        }
+
+        exit: Transition {
+            NumberAnimation {
+                property: "opacity"
+                from: 1.0
+                to: 0.0
+            }
         }
     }
 }

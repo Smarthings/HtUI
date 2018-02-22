@@ -15,6 +15,8 @@ ApplicationWindow {
     title: qsTr("HtUI")
     font: ubuntu.name
 
+    color: Theme.background
+
     Settings {
         id: settings
 
@@ -176,6 +178,7 @@ ApplicationWindow {
     Dialog {
         id: popup
         modal: true
+        blur: true
 
         title: "Teste modal"
         width: 300

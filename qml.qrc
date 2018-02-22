@@ -59,5 +59,6 @@
         <file>pages/ButtonsPage.qml</file>
         <file>pages/DelegatesPage.qml</file>
         <file>UiTheme/ScrollablePane.qml</file>
+        <file>pages/DialogsPage.qml</file>
     </qresource>
 </RCC>

@@ -9,40 +9,50 @@ T.Dialog {
     id: dialog
 
     property color color: Theme.background
+    property bool border: false
+    property int header_height: ApplicationWindow.header.height
+    property bool blur: false
 
-    x: (window.width - width) /2
-    y: 30
+    Component.onCompleted: console.log(ApplicationWindow.header.height)
+
+    parent: ApplicationWindow.overlay
+
+    x: (parent.width - width) /2
+    y: (parent.height - height) /2
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0,
                             header && header.visible ? header.implicitWidth : 0,
                             footer && footer.visible ? footer.implicitWidth : 0,
-                            contentWidth > 0 ? contentWidth + leftPadding + rightPadding : 0)
+                            contentWidth > 0 ? contentWidth + leftPadding + rightPadding : 0) + padding * 2
     implicitHeight: Math.max(background ? background.implicitHeight : 0,
                              (header && header.visible ? header.implicitHeight + spacing : 0)
                              + (footer && footer.visible ? footer.implicitHeight + spacing : 0)
-                             + (contentHeight > 0 ? contentHeight + topPadding + bottomPadding : 0))
+                             + (contentHeight > 0 ? contentHeight + topPadding + bottomPadding : 0)) + padding * 2
 
     contentWidth: contentItem.implicitWidth || (contentChildren.length === 1 ? contentChildren[0].implicitWidth : 0)
     contentHeight: contentItem.implicitHeight || (contentChildren.length === 1 ? contentChildren[0].implicitHeight : 0)
 
-    padding: 12
+    padding: 10
+    clip: true
 
     background: Rectangle {
         id: background
         anchors.fill: parent
         color: Qt.rgba(dialog.color.r, dialog.color.g, dialog.color.b, 1)
+        border.color: dialog.modal || !dialog.border? "transparent" : Theme.componentsBorder
         radius: 2
 
         FastBlur {
             id: fastBlur
+            visible: dialog.blur
             anchors.fill: parent
             radius: 80
             opacity: 0.3
 
             source: ShaderEffectSource {
                 anchors.fill: parent
-                sourceItem: window.contentItem
-                sourceRect: Qt.rect(dialog.x, dialog.y, background.width, background.height)
+                sourceItem: ApplicationWindow.contentItem // window.contentItem
+                sourceRect: Qt.rect(dialog.x, dialog.y - header_height, background.width, background.height)
             }
         }
     }

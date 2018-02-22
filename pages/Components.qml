@@ -101,6 +101,8 @@ ScrollablePage {
                         width: parent.width
                         text: "Dialogs"
                         isItemMenu: true
+
+                        onClicked: stackview_components.push("qrc:/pages/DialogsPage.qml", {"header_height": header.height})
                     }
                 }
             }
