@@ -28,6 +28,7 @@ ScrollablePage {
 
                 Dialog {
                     id: messageDialog
+                    height: 80
 
                     border: true
                     title: "Mensagem"
@@ -82,8 +83,12 @@ ScrollablePage {
                     id: inputDialog
 
                     width: 300
-                    focus: true
                     modal: true
+                    blur: true
+
+                    header_height: -page.header_height
+                    parent: page
+
                     title: "Input"
                     standardButtons: Dialog.Ok | Dialog.Cancel
 
@@ -108,6 +113,12 @@ ScrollablePage {
                     }
                 }
             }
+        }
+
+        Image {
+            source: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Qt_logo_2016.svg/1280px-Qt_logo_2016.svg.png"
+            width: parent.width
+            fillMode: Image.PreserveAspectFit
         }
     }
 }

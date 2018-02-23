@@ -11,6 +11,8 @@ T.Drawer {
 
     parent: T.ApplicationWindow.overlay
 
+    property int header_height: ApplicationWindow.header.height
+
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentHeight + topPadding + bottomPadding)
 
@@ -47,7 +49,7 @@ T.Drawer {
             source: ShaderEffectSource {
                 anchors.fill: parent
                 sourceItem: window.contentItem
-                sourceRect: Qt.rect(control.x, control.y - (window.header? window.header.height : 0), drawer_background.width, drawer_background.height)
+                sourceRect: Qt.rect(control.x, control.y - header_height, drawer_background.width, drawer_background.height)
             }
         }
     }
