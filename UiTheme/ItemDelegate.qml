@@ -28,6 +28,8 @@ T.ItemDelegate {
     property bool isItemMenu: false
     property color backgroundColor: Theme.delegate
 
+    opacity: control.down? 0.5 : 1
+
     contentItem: Item {
         anchors.fill: parent
 
@@ -56,7 +58,7 @@ T.ItemDelegate {
                         width: parent.width
                         height: control.subtext? (parent.height - parent.children[1].height) * 0.8 : parent.height
                         font: control.font
-                        color: !control.enabled? Theme.textDisabled : (control.down ? Theme.color50(Theme.text) : Theme.text)
+                        color: !control.enabled? Theme.textDisabled : Theme.text
                         text: control.text
                         elide: Text.ElideRight
                         verticalAlignment: Qt.AlignVCenter
@@ -70,7 +72,7 @@ T.ItemDelegate {
                         text: control.subtext
                         elide: Text.ElideRight
                         font.pixelSize: Theme.pixelSize * 0.75
-                        color: !control.enabled? Theme.color50(Theme.textDisabled) : (control.down ? Theme.color50(Theme.text) : Theme.color50(Theme.text))
+                        color: !control.enabled? Theme.color50(Theme.textDisabled) : Theme.color50(Theme.text)
                         anchors.left: parent.left
                         anchors.leftMargin: control.padding
                     }
@@ -86,7 +88,7 @@ T.ItemDelegate {
                     anchors.fill: parent
                     text: control.value
                     font.pixelSize: Theme.pixelSize * 0.75
-                    color: !control.enabled? Theme.color50(Theme.textDisabled) : (control.down ? Theme.color50(Theme.text) : Theme.color50(Theme.text))
+                    color: !control.enabled? Theme.color50(Theme.textDisabled) : Theme.color50(Theme.text)
                     horizontalAlignment: Qt.AlignRight
                     verticalAlignment: Qt.AlignVCenter
                     anchors.right: parent.right
@@ -116,10 +118,7 @@ T.ItemDelegate {
             _leftIcon.data = control.leftIcon
         if (control.rightIcon !== null)
             _rightIcon.data = control.rightIcon
-
         if (control.rightIcon === null && control.isItemMenu)
-        {
-            var isItemMenuObj = Qt.createQmlObject("import QtQuick 2.9; import \".\"; Text { text: \"\uE315\"; anchors.fill: parent; anchors.topMargin: 6; horizontalAlignment: Qt.AlignRight; verticalAlignment: Qt.AlignVCenter; color: Theme.color50(Theme.text); font.pixelSize: 25}", _rightIcon);
-        }
+            var isItemMenuObj = Qt.createQmlObject("import QtQuick 2.9; import \".\"; Item { width: 12; height: width; anchors.centerIn: parent; Rectangle { x: parent.width / 8; y: (parent.height * 0.20); width: parent.width * 0.75; height: 2; color: Theme.color50(Theme.text); radius: 5; rotation: 45 } Rectangle { x: parent.width / 8; y: (parent.height * 0.70); width: parent.width * 0.75; height: 2; color: Theme.color50(Theme.text); radius: 5; rotation: 135 }}", _rightIcon);
     }
 }

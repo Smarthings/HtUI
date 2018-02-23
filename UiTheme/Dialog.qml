@@ -13,8 +13,6 @@ T.Dialog {
     property int header_height: ApplicationWindow.header.height
     property bool blur: false
 
-    Component.onCompleted: console.log(ApplicationWindow.header.height)
-
     parent: ApplicationWindow.overlay
 
     x: (parent.width - width) /2
