@@ -96,6 +96,38 @@ ScrollablePage {
                         verticalAlignment: Qt.AlignVCenter
                     }
                 }
+
+                ItemDelegate {
+                    width: parent.width
+                    implicitHeight: Theme.implicitHeightComponents * 1.2
+                    text: "Item Delegate"
+                    isItemMenu: true
+                    rightIcon: Badges {
+                        label: 10
+                    }
+                }
+
+                ItemDelegate {
+                    width: parent.width
+                    implicitHeight: Theme.implicitHeightComponents * 1.2
+                    text: "Item Delegate"
+                    isItemMenu: true
+                    rightIcon: Badges {
+                        color: Theme.success
+                        label: 100
+                    }
+                }
+
+                ItemDelegate {
+                    width: parent.width
+                    implicitHeight: Theme.implicitHeightComponents * 1.2
+                    text: "Item Delegate"
+                    isItemMenu: true
+                    rightIcon: Badges {
+                        color: Theme.alert
+                        label: 50
+                    }
+                }
             }
         }
 

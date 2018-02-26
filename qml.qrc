@@ -60,5 +60,6 @@
         <file>pages/DelegatesPage.qml</file>
         <file>UiTheme/ScrollablePane.qml</file>
         <file>pages/DialogsPage.qml</file>
+        <file>UiTheme/Badges.qml</file>
     </qresource>
 </RCC>
