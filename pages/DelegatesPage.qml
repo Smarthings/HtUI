@@ -102,7 +102,7 @@ ScrollablePage {
                     implicitHeight: Theme.implicitHeightComponents * 1.2
                     text: "Item Delegate"
                     isItemMenu: true
-                    rightIcon: Badges {
+                    valueControl: Badges {
                         label: 10
                     }
                 }
@@ -112,7 +112,7 @@ ScrollablePage {
                     implicitHeight: Theme.implicitHeightComponents * 1.2
                     text: "Item Delegate"
                     isItemMenu: true
-                    rightIcon: Badges {
+                    valueControl: Badges {
                         color: Theme.success
                         label: 100
                     }
@@ -123,7 +123,7 @@ ScrollablePage {
                     implicitHeight: Theme.implicitHeightComponents * 1.2
                     text: "Item Delegate"
                     isItemMenu: true
-                    rightIcon: Badges {
+                    valueControl: Badges {
                         color: Theme.alert
                         label: 50
                     }

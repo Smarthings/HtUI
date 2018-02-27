@@ -23,6 +23,7 @@ T.ItemDelegate {
 
     property string subtext
     property string value
+    property var valueControl: null
     property var leftIcon: null
     property var rightIcon: null
     property bool isItemMenu: false
@@ -82,7 +83,7 @@ T.ItemDelegate {
             Item {
                 Layout.fillHeight: true
                 Layout.preferredWidth: 100
-                visible: control.value
+                visible: control.value && !control.valueControl
 
                 Text {
                     anchors.fill: parent
@@ -96,6 +97,15 @@ T.ItemDelegate {
                     elide: Text.ElideRight
                 }
             }
+
+            Item {
+                Layout.fillHeight: true
+                Layout.preferredWidth: 20
+                visible: control.valueControl
+
+                data: control.valueControl
+            }
+
 
             Item {
                 id: _rightIcon
