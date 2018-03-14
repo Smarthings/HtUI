@@ -10,9 +10,9 @@ import "./"
 T.ComboBox {
     id: control
 
-    implicitWidth: Math.max(background ? background.implicitWidth : 0,
+    implicitWidth: Math.max(background ? background.implicitWidth * 1.1 : 0,
                                          contentItem.implicitWidth + leftPadding + rightPadding)
-    implicitHeight: Math.max(background ? background.implicitHeight : Theme.implicitHeightComponents,
+    implicitHeight: Math.max(background ? background.implicitHeight * 1.1 : Theme.implicitHeightComponents,
                                           Math.max(contentItem.implicitHeight,
                                                    indicator ? indicator.implicitHeight : Theme.implicitHeightComponents) + topPadding + bottomPadding)
 

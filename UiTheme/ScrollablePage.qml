@@ -20,7 +20,7 @@ Page {
 
             padding: 0
             topPadding: 10
-            bottomPadding: 10
+            bottomPadding: 8
         }
 
         ScrollIndicator.vertical: ScrollIndicator { }

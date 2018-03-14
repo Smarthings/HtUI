@@ -7,7 +7,7 @@ import "../UiTheme/"
 ScrollablePage {
     id: page
     width: parent.width
-    height: window.height * 0.92
+    height: window.height - window.header.height
 
     property int header_height: 0
     property string titleHeader: qsTr("Dialogs")
