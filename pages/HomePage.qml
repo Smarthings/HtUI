@@ -4,10 +4,9 @@ import QtQuick.Layouts 1.3
 
 import "../UiTheme/"
 
-Page {
+ScrollablePage {
     color: Theme.background
-    focus: true
-    clip: true
+    property var headerPage: HeaderDefault {}
 
     Flickable {
         id: flickable

@@ -27,13 +27,7 @@ ApplicationWindow {
         onAccentChanged: Theme.accent = accent
     }
 
-    property var headerTitle: ["HtUI"]
-    onHeaderTitleChanged: {
-        titlePage = headerTitle[(headerTitle.length -1)]
-    }
-
     property string titlePage
-    header: HeaderDefault {}
 
     Drawer {
         id: drawer
@@ -171,7 +165,8 @@ ApplicationWindow {
         }
         onCurrentItemChanged: {
             titlePage = stackView.currentItem.titleHeader? stackView.currentItem.titleHeader : "HtUI"
-            header.visible = !stackView.currentItem.header
+            //header.visible = !stackView.currentItem.header
+            header = stackView.currentItem.headerPage
         }
     }
 

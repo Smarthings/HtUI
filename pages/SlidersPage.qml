@@ -6,7 +6,7 @@ import "../UiTheme/"
 
 ScrollablePage {
     width: parent.width
-    height: window.height - header_height * 1.1
+    height: window.height * 0.92
 
     property int header_height: 0
     property string titleHeader: qsTr("Sliders")

@@ -3,9 +3,10 @@ import QtQuick.Controls 2.2
 
 import "../UiTheme"
 
-ApplicationPage {
+ScrollablePage {
     property string titleHeader: qsTr("Aparência")
     color: Theme.background
+    property var headerPage: HeaderDefault {}
 
     Column {
         width: parent.width

@@ -7,10 +7,10 @@ import "../UiTheme/"
 ScrollablePage {
     id: page
     property string titleHeader: qsTr("Components")
-    property int page_height: height - header.height
+    //property int page_height: height - header.height
 
     color: Theme.background
-    header: ToolBar {
+    property var headerPage: ToolBar {
         RowLayout {
             anchors.fill: parent
             anchors.leftMargin: 5
@@ -43,7 +43,7 @@ ScrollablePage {
 
         initialItem: Pane {
             width: parent.width
-            height: window.height - header.height * 1.1
+            height: window.height
 
             Column {
                 width: parent.width
@@ -62,7 +62,7 @@ ScrollablePage {
                         text: "Inputs"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/InputsPage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/InputsPage.qml")
                     }
 
                     ItemDelegate {
@@ -70,7 +70,7 @@ ScrollablePage {
                         text: "Toggle"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/TogglePage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/TogglePage.qml")
                     }
 
                     ItemDelegate {
@@ -78,7 +78,7 @@ ScrollablePage {
                         text: "Sliders"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/SlidersPage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/SlidersPage.qml")
                     }
 
                     ItemDelegate {
@@ -86,7 +86,7 @@ ScrollablePage {
                         text: "Buttons"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/ButtonsPage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/ButtonsPage.qml")
                     }
 
                     ItemDelegate {
@@ -94,7 +94,7 @@ ScrollablePage {
                         text: "Delegates"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/DelegatesPage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/DelegatesPage.qml")
                     }
 
                     ItemDelegate {
@@ -102,7 +102,7 @@ ScrollablePage {
                         text: "Dialogs"
                         isItemMenu: true
 
-                        onClicked: stackview_components.push("qrc:/pages/DialogsPage.qml", {"header_height": header.height})
+                        onClicked: stackview_components.push("qrc:/pages/DialogsPage.qml")
                     }
                 }
             }
