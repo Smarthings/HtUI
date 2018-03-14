@@ -92,6 +92,7 @@ ApplicationWindow {
 
                             leftIcon: Text {
                                 text: modelData.icon
+                                font.family: material_icons.name
                                 anchors.fill: parent
                                 color: Theme.text
                                 font.pixelSize: 18
@@ -125,6 +126,7 @@ ApplicationWindow {
 
                         leftIcon: Text {
                             text: "\uE887"
+                            font.family: material_icons.name
                             anchors.fill: parent
                             color: Theme.text
                             font.pixelSize: 18
@@ -141,6 +143,7 @@ ApplicationWindow {
 
                         leftIcon: Text {
                             text: "\uE879"
+                            font.family: material_icons.name
                             anchors.fill: parent
                             color: Theme.text
                             font.pixelSize: 18
@@ -188,7 +191,6 @@ ApplicationWindow {
 
     FontLoader {
         id: material_icons
-        name: "Ubuntu"
         source: "qrc:/UiTheme/fonts/MaterialIcons.ttf"
     }
 }

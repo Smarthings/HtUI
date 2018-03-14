@@ -56,6 +56,7 @@ ScrollablePage {
 
                     width: 300
                     modal: true
+                    blur: true
 
                     title: "Confirmação"
                     standardButtons: Dialog.Yes | Dialog.No

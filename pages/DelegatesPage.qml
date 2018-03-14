@@ -89,6 +89,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE88D"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -148,6 +149,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE869"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -166,6 +168,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE859"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -184,6 +187,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE927"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -202,6 +206,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE88D"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -229,6 +234,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE869"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -247,6 +253,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE859"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -265,6 +272,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE927"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
@@ -283,6 +291,7 @@ ScrollablePage {
 
                     leftIcon: Text {
                         text: "\uE88D"
+                        font.family: material_icons.name
                         anchors.fill: parent
                         color: Theme.text
                         font.pixelSize: 18
