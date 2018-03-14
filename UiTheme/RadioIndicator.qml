@@ -23,7 +23,6 @@ Rectangle {
         width: 20 * 0.85
         height: 20 * 0.85
         radius: width / 2
-        //color: control.down ? Default.textDarkColor : Default.buttonCheckedColor
         color: control.down? Theme.checkedPressed(Theme.accent) : Theme.accent
         visible: control.checked
     }

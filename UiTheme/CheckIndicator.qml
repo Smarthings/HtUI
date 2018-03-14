@@ -19,13 +19,33 @@ Rectangle {
 
     opacity: enabled ? 1 : 0.75
 
-    Image {
-        x: (parent.width - width) / 2
-        y: (parent.height - height) / 2
-        source: "image://default/check/" + (control.visualFocus ? Default.focusColor : Default.textColor)
-        sourceSize.width: width
-        sourceSize.height: height
-        visible: control.checkState === Qt.Checked
+    Item {
+        y: 2.5
+        x: 1
+        width: height
+        height: Theme.implicitHeightComponents * 0.5
+
+        Rectangle {
+            x: width * 0.20
+            y: (parent.height /2) * 1.25
+            width: parent.width * 0.5
+            height: 2
+            color: control.checkState === Qt.Checked? Theme.components : "transparent"
+
+            radius: 5
+            rotation: 45
+        }
+
+        Rectangle {
+            x: width * 0.34
+            y: parent.height /2
+            width: parent.width
+            height: 2
+            color: control.checkState === Qt.Checked? Theme.components : "transparent"
+
+            radius: 5
+            rotation: -50
+        }
     }
 
     Rectangle {
