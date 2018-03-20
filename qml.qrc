@@ -61,5 +61,7 @@
         <file>UiTheme/ScrollablePane.qml</file>
         <file>pages/DialogsPage.qml</file>
         <file>UiTheme/Badges.qml</file>
+        <file>pages/TabBarPage.qml</file>
+        <file>UiTheme/TabBar.qml</file>
     </qresource>
 </RCC>

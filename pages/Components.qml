@@ -104,6 +104,14 @@ ScrollablePage {
 
                         onClicked: stackview_components.push("qrc:/pages/DialogsPage.qml")
                     }
+
+                    ItemDelegate {
+                        width: parent.width
+                        text: "TabBar"
+                        isItemMenu: true
+
+                        onClicked: stackview_components.push("qrc:/pages/TabBarPage.qml")
+                    }
                 }
             }
         }

@@ -84,6 +84,18 @@ Item {
     {
         return Qt.rgba(color.r, color.g, color.b, 0.5);
     }
+    function color60(color)
+    {
+        return Qt.rgba(color.r, color.g, color.b, 0.6);
+    }
+    function color70(color)
+    {
+        return Qt.rgba(color.r, color.g, color.b, 0.7);
+    }
+    function color80(color)
+    {
+        return Qt.rgba(color.r, color.g, color.b, 0.8);
+    }
     function clicked(color)
     {
         return Qt.rgba(color.r, color.g, color.b, 0.9);
