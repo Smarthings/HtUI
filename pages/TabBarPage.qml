@@ -77,19 +77,14 @@ ScrollablePage {
             width: parent.width
             height: 45
 
-            TabButton {
-                height: parent.height
-                text: "Home"
-            }
+            Repeater {
+                model: 20
 
-            TabButton {
-                height: parent.height
-                text: "Page"
-            }
-
-            TabButton {
-                height: parent.height
-                text: "Page"
+                TabButton {
+                    width: implicitWidth
+                    height: parent.height
+                    text: "Button " + index
+                }
             }
         }
     }

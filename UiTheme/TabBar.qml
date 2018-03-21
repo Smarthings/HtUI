@@ -29,7 +29,7 @@ T.TabBar {
 
         highlightMoveDuration: 0
         highlightRangeMode: ListView.ApplyRange
-        preferredHighlightBegin: 40
+        preferredHighlightBegin: 80
         preferredHighlightEnd: width - 40
     }
 
